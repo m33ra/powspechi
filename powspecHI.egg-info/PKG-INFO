@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: powspecHI
+Version: 0.1.dev0
+Summary: A package angular spectral analysis for heavy-ions
+Home-page: https://github.com/m33ra/powspecHI/
+Author: Meera Machado
+Author-email: machado.meera@gmail.com
+License: UNKNOWN
+Description: # powspecHI
+        Simple python library for angular power spectral analysis of heavy-ion data - coupled to HEALPix
+        
+        Requirements: healpy 1.12.10
+        It should be remarked that numpy, scipy and matplotlib are installed together with healpy.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
