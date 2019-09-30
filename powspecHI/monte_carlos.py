@@ -20,15 +20,15 @@ def fphi_psi(x, psis=None, vns=None):
     psis = psis[:, np.newaxis]
     return 1/(2*np.pi)*(1. + 2*np.sum(vns*np.cos(np.arange(1, n+1)*(x - psis).T), axis=1))
 
-def iso_dist(mult, cut=None):
+def iso_dist(mult, etacut=None):
 
 	angs = np.zeros((mult, 2))
 	angs[:, 0] = np.random.uniform(0., 2*np.pi, size=mult)
 
-	if cut:
+	if etacut:
 
-		qi = 2*np.arctan(np.exp(-cut))
-		qf = 2*np.arctan(np.exp(cut))
+		qi = 2*np.arctan(np.exp(-etacut))
+		qf = 2*np.arctan(np.exp(etacut))
 
 		vi = (1 + np.cos(qf))/2.
 		vf = (1 + np.cos(qi))/2.

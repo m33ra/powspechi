@@ -1,7 +1,7 @@
 import numpy as np
 import healpy as hp
 
-def readfile_phi_theta(infile):
+def readevtfile(infile):
     
     data = []
 
@@ -26,43 +26,39 @@ def mapping(nside, angs):
     return maph
 
 # Make a supmap out of maps in a dictionary
-def supmaps(dmaps, supmapiso=None):
-	npix = hp.get_map_size(dmaps['0'])
-	supmap = np.zeros(npix)
+def supmaps(maps, supmapiso=None):
+	if maps[0].ndim == 0:
+		maps = np.reshape(maps, (1, len(maps)))
 
-	for key in dmaps.keys():
-		supmap += dmaps[key]/npix
+	npix = hp.get_map_size(maps[0])
 
-	sumi = np.sum(supmap)
-	supmap *= npix/sumi
+	supmap = np.sum(maps, axis=0)
+	supmap *= npix/np.sum(supmap)
 
 	if np.any(supmapiso):
 		pixs = np.nonzero(supmapiso)
 		supmap[pixs] /= supmapiso[pixs]
-		sumi = np.sum(supmap)
-		supmap *= npix/sumi
+		supmap *= npix/np.sum(supmap)
 
 	return supmap
 
 # Make modf maps out of the given maps and a supmap
 def make_modf_maps(maps, supmap, eta_cut=0.9):
-    npix = hp.get_map_size(maps['0'])
+	if maps[0].ndim == 0:
+		maps = np.reshape(maps, (1, len(maps)))
+
+    npix = hp.get_map_size(maps[0])
     nside = hp.npix2nside(npix)
     
+    qi, qf = 2.*np.arctan(np.exp(-np.array([eta_cut, -eta_cut])))
     mask = np.ones(npix)
-    for i in range(npix):
-        if np.abs(-np.log(np.tan(hp.pix2ang(nside, i)[0]/2.))) < eta_cut:
-            mask[i] = 0.
+    mask[hp.query_disc(nside, qi, qf)] = 0.
 
     finmap = supmap/npix*(1.-mask)+mask
     pixs = np.where(finmap == 0.)
     finmap[pixs] = 1.
                     
-    modf_maps = {}
-    for key in maps.keys():
-        modf_maps[key] = np.copy(maps[key])/npix
-        modf_maps[key] /= finmap
-        sumi = np.sum(modf_maps[key])
-        modf_maps[key] *= npix/sumi
+    modf_maps = maps / (npix*finmap)
+    modf_maps *= npix / np.sum(modf_maps, axis=1)[:, None]
         
     return modf_maps

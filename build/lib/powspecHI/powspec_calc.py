@@ -4,42 +4,40 @@ from scipy.special import lpmv
 from scipy.integrate import quad
 from math import factorial
 
-def ls(nside):
+def lns(nside):
 
     nlmax = 3*nside - 1
     l = np.arange(nlmax + 1)
     
     return l
 
-def clsd_sing(maph):
-
-    nside = hp.get_nside(maph)
-    js = ls(nside)
-    clsd = {'norm': np.zeros(3*nside), 'mdz': np.zeros(3*nside-1)}
-    clsd['norm'], alms = hp.anafast(maph, alm=True)
-    c0s = 1./(2.*js + 1.)*np.abs(alms[js])**2
-    clsd['mdz'] = clsd['norm'][1:] - c0s[1:]
-    
-    return clsd
-
 # Calculate power spectrum from given map dictionary with keys equal to event number
-def cld_from_dmaps(dmaps):
-    nevts, nside = len(dmaps), hp.get_nside(dmaps['0'])
+def cld_from_maps(maps):
+    if maps[0].ndim == 0:
+        nevts, nside = 1, hp.get_nside(maps)
+        maps = [maps]
+    else:
+        nevts, nside = len(maps), hp.get_nside(maps[0])
+
     js = np.arange(3*nside)
     cld = {'norm': np.zeros((nevts, 3*nside)), 'mdz': np.zeros((nevts, 3*nside-1))}
-    i = 0
+    ii = 0
 
-    for evt in dmaps.keys():
-        cld['norm'][i, :], alms = hp.anafast(dmaps[evt], alm=True)
+    for emap in maps:
+        cld['norm'][ii, :], alms = hp.anafast(emap, alm=True)
         c0s = 1./(2.*js + 1.)*np.abs(alms[js])**2
-        cld['mdz'][i, :] = cld['norm'][i, 1:] - c0s[1:]
-        i += 1
+        cld['mdz'][ii, :] = cld['norm'][ii, 1:] - c0s[1:]
+        ii += 1
 
-    averd = {}
-    for key in cld.keys():
-        averd[key] = [np.mean(cld[key], axis=0), np.std(cld[key], axis=0, ddof=1)/np.sqrt(nevts)]
-
-    return cld, averd
+    if nevts != 0:
+        averd = {}
+        for key in cld.keys():
+            averd[key] = [np.mean(cld[key], axis=0), np.std(cld[key], axis=0, ddof=1)/np.sqrt(nevts)]
+        return cld, averd
+    else:
+        for key in cld.keys():
+            cld[key] = cld[key][0]
+        return cld
 
 # Correction by iso subtraction:
 def iso_background(clsres_file):
