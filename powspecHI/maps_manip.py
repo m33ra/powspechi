@@ -51,10 +51,10 @@ def make_modf_maps(maps, supmap, eta_cut=0.9):
 
 	npix = hp.get_map_size(maps[0])
 	nside = hp.npix2nside(npix)
-
+	
 	qi, qf = 2.*np.arctan(np.exp(-np.array([eta_cut, -eta_cut])))
 	mask = np.ones(npix)
-	mask[hp.query_disc(nside, qi, qf)] = 0.
+	mask[hp.query_strip(nside, qi, qf)] = 0.
 
 	finmap = supmap/npix*(1.-mask)+mask
 	pixs = np.where(finmap == 0.)

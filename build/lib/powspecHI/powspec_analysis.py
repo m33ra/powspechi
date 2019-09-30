@@ -40,7 +40,7 @@ class powspec_analysis():
             raise pserr.SupmapError('In the case of a single map, it makes no sense to divide it by itself.')
             
         elif detcorr:
-            det_file = 'supmaps_iso/supmap_iso%s_ns%d.fits' %(eta_cut, nside)
+            det_file = 'powspecHI/supmaps_iso/supmap_iso%s_ns%d.fits' %(eta_cut, nside)
             if os.path.isfile(det_file):
                 supmapiso = hp.read_map(det_file, verbose=False)
                 pixs = np.nonzero(supmapiso)
@@ -49,7 +49,7 @@ class powspec_analysis():
                 supmap *= npix / np.sum(supmap)
             
                 # Making the f_bar maps:
-                tmap_modf = make_modf_maps3(tmap, supmap, eta_cut)
+                tmap_modf = make_modf_maps(tmap, supmap, eta_cut)
                 clds_modf, Clmodf = cld_from_maps(tmap_modf)
             
                 del tmap
