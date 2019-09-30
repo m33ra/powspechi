@@ -10,6 +10,7 @@ class powspec_analysis():
     """ A class to perform the full analysis and extract the final <Sl^{m \= 0}> """
 
     def __init__(self, nside, angs, eta_cut=0.9, multcorr_modf=None, multcorr_raw=None, detcorr=False):
+        
         if angs[0].ndim == 1: # if angs is alone
             angs = [angs]
             flagd = True

@@ -30,7 +30,7 @@ def cld_from_maps(maps):
         cld['mdz'][ii, :] = cld['norm'][ii, 1:] - c0s[1:]
         ii += 1
 
-    if nevts != 0:
+    if nevts != 1:
         averd = {}
         for key in cld.keys():
             averd[key] = [np.mean(cld[key], axis=0), np.std(cld[key], axis=0, ddof=1)/np.sqrt(nevts)]
