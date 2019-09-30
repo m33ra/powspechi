@@ -7,7 +7,7 @@ requirements = ['healpy>=1.12.10']
 
 setup(
         name='powspecHI',
-        version='0.2.7.3dev',
+        version='0.2.8dev',
         author='Meera Machado',
         author_email='machado.meera@gmail.com',
         description='A package angular spectral analysis for heavy-ions',
@@ -15,7 +15,7 @@ setup(
         url='https://github.com/m33ra/powspecHI/',
         packages=find_packages(),
         include_package_data=True,
-        install_requirements=requirements,
+        install_requires=requirements,
         classifiers=[
             "Programming Language :: Python :: 3.6",
             "License :: OSI Approved :: MIT License",

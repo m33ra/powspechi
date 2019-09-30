@@ -1,3 +1,4 @@
+MANIFEST.in
 README.md
 setup.py
 powspecHI/__init__.py
@@ -9,4 +10,15 @@ powspecHI/pserrors.py
 powspecHI.egg-info/PKG-INFO
 powspecHI.egg-info/SOURCES.txt
 powspecHI.egg-info/dependency_links.txt
+powspecHI.egg-info/requires.txt
 powspecHI.egg-info/top_level.txt
+powspecHI/supmaps_iso/supmap_iso0.8_ns128.fits
+powspecHI/supmaps_iso/supmap_iso0.8_ns16.fits
+powspecHI/supmaps_iso/supmap_iso0.8_ns32.fits
+powspecHI/supmaps_iso/supmap_iso0.8_ns64.fits
+powspecHI/supmaps_iso/supmap_iso0.8_ns8.fits
+powspecHI/supmaps_iso/supmap_iso0.9_ns128.fits
+powspecHI/supmaps_iso/supmap_iso0.9_ns16.fits
+powspecHI/supmaps_iso/supmap_iso0.9_ns32.fits
+powspecHI/supmaps_iso/supmap_iso0.9_ns64.fits
+powspecHI/supmaps_iso/supmap_iso0.9_ns8.fits
