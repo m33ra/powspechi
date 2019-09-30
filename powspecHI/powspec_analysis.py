@@ -1,9 +1,9 @@
 import numpy as np
 import healpy as hp
-from maps_manip import mapping, make_modf_maps
-from powspec_calc import cld_from_maps, iso_background, subiso_corr
+from powspecHI.maps_manip import mapping, make_modf_maps
+from powspecHI.powspec_calc import cld_from_maps, iso_background, subiso_corr
 import os
-import pserrors
+import powspecHI.pserrors
 
 class powspec_analysis():
 

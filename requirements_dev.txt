@@ -1,4 +1,4 @@
 pip==19.2.3
 wheel==0.33.6
 healpy==1.12.10
-twine==1.15.0
+twine==2.0.0

@@ -13,6 +13,7 @@ def lns(nside):
 
 # Calculate power spectrum from given map dictionary with keys equal to event number
 def cld_from_maps(maps):
+
     if maps[0].ndim == 0:
         nevts, nside = 1, hp.get_nside(maps)
         maps = [maps]
