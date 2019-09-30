@@ -3,7 +3,7 @@ import healpy as hp
 from powspecHI.maps_manip import mapping, make_modf_maps
 from powspecHI.powspec_calc import cld_from_maps, iso_background, subiso_corr
 import os
-import powspecHI.pserrors
+import powspecHI.pserrors as pserr
 
 class powspec_analysis():
 
@@ -37,7 +37,7 @@ class powspec_analysis():
         """
         
         if detcorr and 'flagd' in locals():
-            raise SupmapError('In the case of a single map, it makes no sense to divide it by itself.')
+            raise pserr.SupmapError('In the case of a single map, it makes no sense to divide it by itself.')
             
         elif detcorr:
             det_file = 'supmaps_iso/supmap_iso%s_ns%d.fits' %(eta_cut, nside)
@@ -58,7 +58,7 @@ class powspec_analysis():
                 self.Clmodf = Clmodf
                 
             else:
-                raise IsomapError('The desired supmap_iso file with nside = %d and |eta| < %s does not exist. Please refer to documentation.' %(nside, eta_cut))
+                raise pserr.IsomapError('The desired supmap_iso file with nside = %d and |eta| < %s does not exist. Please refer to documentation.' %(nside, eta_cut))
                     
         """
             Average power spectrum correction by multiplicity 
@@ -74,4 +74,4 @@ class powspec_analysis():
             Slmodf = subiso_corr(Clmodf, iso_background(multcorr_modf))
             self.Slmodf = Slmodf
         elif multcorr_modf:
-            raise PowSpecError('The averaged normalized spectrum does not exist.')
+            raise pserr.PowSpecError('The averaged normalized spectrum does not exist.')
