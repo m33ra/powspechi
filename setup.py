@@ -15,7 +15,7 @@ setup(
         url='https://github.com/m33ra/powspecHI/',
         packages=find_packages(),
         include_package_data=True,
-        install_requirements=requirements,
+        install_requires=requirements,
         classifiers=[
             "Programming Language :: Python :: 3.6",
             "License :: OSI Approved :: MIT License",
