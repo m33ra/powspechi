@@ -1,7 +1,7 @@
 Metadata-Version: 1.1
 Name: powspecHI
-Version: 0.2.8.dev0
-Summary: A package angular spectral analysis for heavy-ions
+Version: 0.2.8.1.dev0
+Summary: A package of angular spectral analysis for heavy-ions
 Home-page: https://github.com/m33ra/powspecHI/
 Author: Meera Machado
 Author-email: machado.meera@gmail.com
