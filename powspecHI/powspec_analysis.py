@@ -40,7 +40,9 @@ class powspec_analysis():
             raise pserr.SupmapError('In the case of a single map, it makes no sense to divide it by itself.')
             
         elif detcorr:
-            det_file = 'powspecHI/supmaps_iso/supmap_iso%s_ns%d.fits' %(eta_cut, nside)
+            curr_dir = os.path.dirname(__file__)
+            #print(curr_dir)
+            det_file = os.path.join(curr_dir, 'supmaps_iso/supmap_iso%s_ns%d.fits' %(eta_cut, nside))
             if os.path.isfile(det_file):
                 supmapiso = hp.read_map(det_file, verbose=False)
                 pixs = np.nonzero(supmapiso)
