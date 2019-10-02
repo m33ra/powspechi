@@ -1,4 +1,4 @@
-# powspecHI
+# powspechi
 Simple python library for angular power spectral analysis of heavy-ion data - coupled to HEALPix
 
 Requirements: healpy 1.12.10
