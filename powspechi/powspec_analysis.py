@@ -1,9 +1,9 @@
 import numpy as np
 import healpy as hp
-from powspecHI.maps_manip import mapping, make_modf_maps
-from powspecHI.powspec_calc import cld_from_maps, iso_background, subiso_corr
+from powspechi.maps_manip import mapping, make_modf_maps
+from powspechi.powspec_calc import cld_from_maps, iso_background, subiso_corr
 import os
-import powspecHI.pserrors as pserr
+import powspechi.pserrors as pserr
 
 class powspec_analysis():
 
@@ -21,7 +21,6 @@ class powspec_analysis():
         for angi in angs:
             tmap.append(mapping(nside, angi))
             Fthetaphi += tmap[-1] / npix
-        #del angs
         Fthetaphi *= npix / np.sum(Fthetaphi)
         
         if 'flagd' in locals():
@@ -41,7 +40,6 @@ class powspec_analysis():
             
         elif detcorr:
             curr_dir = os.path.dirname(__file__)
-            #print(curr_dir)
             det_file = os.path.join(curr_dir, 'supmaps_iso/supmap_iso%s_ns%d.fits' %(eta_cut, nside))
             if os.path.isfile(det_file):
                 supmapiso = hp.read_map(det_file, verbose=False)
