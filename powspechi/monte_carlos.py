@@ -1,5 +1,8 @@
 import numpy as np
 
+def fconst(x):
+    return 1.
+
 def ffexp_folder(x):
     return 1/3.17739*np.cosh(0.5*(x - np.pi/2.))*((x - np.pi/2.)**2 + 1.)
 

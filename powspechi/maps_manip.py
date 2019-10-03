@@ -1,17 +1,22 @@
 import numpy as np
 import healpy as hp
+import os
+from powspechi.pserrors import IsomapError
 
-def readevtfile(infile):
+# Read event file
+def readevtfile(infile, skip_header=True):
     
     data = []
 
     with open(infile, 'r') as f:
-        f.readline()
+    	if skip_header:
+        	f.readline()
         for line in f:
             data.append(line.split())
 
     return np.asarray(data, dtype=float)
 
+# Mapping angs of type 'phi theta'
 def mapping(nside, angs):
 
 	npix = hp.nside2npix(nside)
@@ -24,6 +29,19 @@ def mapping(nside, angs):
 	maph *= float(npix)/len(angs)
 
 	return maph
+
+# Get supmap_iso numpy array:
+def get_supmap_iso(nside, eta_cut=0.9):
+
+	curr_dir = os.path.dirname(__file__)
+	det_file = os.path.join(curr_dir, 'supmaps_iso/supmap_iso%s_ns%d.fits' %(eta_cut, nside))
+
+    if os.path.isfile(det_file):
+    	supmapiso = hp.read_map(det_file, verbose=False)
+    	return supmapiso
+
+    else:
+    	raise IsomapError('The desired supmap_iso file with nside = %d and |eta| < %s does not exist. Please refer to documentation.' %(nside, eta_cut))
 
 # Make a supmap out of maps in a dictionary
 def supmaps(maps, supmapiso=None):
@@ -51,7 +69,7 @@ def make_modf_maps(maps, supmap, eta_cut=0.9):
 
 	npix = hp.get_map_size(maps[0])
 	nside = hp.npix2nside(npix)
-	
+
 	qi, qf = 2.*np.arctan(np.exp(-np.array([eta_cut, -eta_cut])))
 	mask = np.ones(npix)
 	mask[hp.query_strip(nside, qi, qf)] = 0.

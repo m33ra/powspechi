@@ -6,13 +6,13 @@ with open('README.md', 'r') as readf:
 requirements = ['healpy>=1.12.10']
 
 setup(
-        name='powspecHI',
-        version='0.2.8.1dev',
+        name='powspechi',
+        version='0.2.9dev',
         author='Meera Machado',
         author_email='machado.meera@gmail.com',
-        description='A package of angular spectral analysis for heavy-ions',
+        description='A package of angular power spectral analysis for heavy-ions',
         long_description=readme,
-        url='https://github.com/m33ra/powspecHI/',
+        url='https://github.com/m33ra/powspechi/',
         packages=find_packages(),
         include_package_data=True,
         install_requires=requirements,

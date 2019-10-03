@@ -3,6 +3,7 @@ import healpy as hp
 from scipy.special import lpmv
 from scipy.integrate import quad
 from math import factorial
+from powspechi.monte_carlos import fconst
 
 def lns(nside):
 
@@ -70,17 +71,38 @@ def av_over_zvtx(avcls, nevts):
         mean_zvtx[key] = [mean_zvtx_k, std_zvtx/sumw]
     return mean_zvtx
 
-# The blm coefficients from a function isotropic in theta
-def blm(l, m, cut=0.9):
-    if cut:
-        qi, qf = 2.*np.arctan(np.exp(-np.array([cut, -cut])))
+# The blm coefficients from a function g(theta)
+def blm(l, m, eta_cut=0.9, g_sim=fconst, args=[]):
+    if eta_cut:
+        qi, qf = 2.*np.arctan(np.exp(-np.array([eta_cut, -eta_cut])))
     else:
-        qi, qf = 0., 2*np.pi
+        qi, qf = 0., np.pi
 
-    b_lm = 4*np.pi/(np.cos(qi) - np.cos(qf))*np.sqrt((2.*l+1.)/(4*np.pi)*factorial(l - m)/factorial(l + m))*quad(lambda theta: np.sin(theta)*
-        lpmv(m, l, np.cos(theta)), qi, qf)[0]
+    c0 = 1./np.sqrt(4*np.pi)*quad(lambda theta: np.sin(theta)*g_sim(theta), qi, qf)[0]
+
+    b_lm = no.sqrt(4*np.pi)/c0*np.sqrt((2.*l+1.)/(4*np.pi)*factorial(l - m)/factorial(l + m))*quad(lambda theta: np.sin(theta)*
+        g_sim(theta)*lpmv(m, l, np.cos(theta)), qi, qf)[0]
 
     return b_lm
+
+# Calculates the alm coefficients of a function f(theta, phi) ~ g(theta)*h(phi)
+def alm_dNdphi(l, m, eta_cut=0.9, vns=np.ones(4), psis=np.zeros(4)):
+
+    if eta_cut:
+        qi, qf = 2.*np.arctan(np.exp(-np.array([eta_cut, -eta_cut])))
+    else:
+        qi, qf = 0., np.pi
+
+    n = len(vns)
+
+    if m == 0:
+        alm = blm(l, m, eta_cut)
+    elif m <= n:
+        alm = blm(l, m, eta_cut) * vns[m - 1] * np.exp(-1.j*n*psis[m - 1])
+    else:
+        alm = 0. + 0.j
+
+    return alm
 
 # Calculates Cl analytically for certain alm coefficients until lsize
 def cls_calc(lsize, alms, args=[]):
