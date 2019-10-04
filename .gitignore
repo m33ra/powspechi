@@ -1,0 +1,19 @@
+# Compiled python modules
+*.pyc
+
+# Setuptools distribution folder
+/dist/
+
+# Python egg metadata, regenerated from source files by setuptools
+/*.egg-info
+/*.egg
+
+# Some Jupyter notebook checkpoints file
+/.ipynb_checkpoints/
+
+# All the Sphinx related stuff
+docs/
+
+################################################################################
+# Taken from https://python-packaging.readthedocs.io/en/latest/everything.html #
+################################################################################
