@@ -172,7 +172,8 @@ def av_over_zvtx(avcls, nevts):
 
     """Calculates the weighted average of spectra from distinct event ensembles.
 
-    
+    Parameters
+    ----------
 
     """
 
