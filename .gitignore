@@ -12,7 +12,7 @@
 /.ipynb_checkpoints/
 
 # All the Sphinx related stuff
-/docs/
+/docs/*
 
 ################################################################################
 # Taken from https://python-packaging.readthedocs.io/en/latest/everything.html #
