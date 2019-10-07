@@ -5,6 +5,25 @@ from powspechi.pserrors import IsomapError
 
 # Read event file
 def readevtfile(infile, skip_header=True):
+
+	r"""Read an event file with at least two columns, where the first should
+	correspond to the particles' azimuthal (:math:`\phi`) coordinates and the
+	second to the polar (:math:`\theta`) coordinates.
+
+	Parameters
+	----------
+	infile : filenamestr
+		The event file name whose format is described above.
+	skip_header : bool, optional
+		Option to skip the first line of the file. Default: *True*.
+
+	Returns
+	-------
+	angs : float, ndarray
+		A 2-D array whose shape is *(mult, ncol)*, where *mult* is the
+		event multiplicity and *ncol* the number of columns.
+
+	"""
     
 	data = []
 
@@ -14,7 +33,9 @@ def readevtfile(infile, skip_header=True):
 		for line in f:
 			data.append(line.split())
 
-	return np.asarray(data, dtype=float)
+	angs = np.asarray(data, dtype=float)
+
+	return angs
 
 # Mapping angs of type 'phi theta'
 def mapping(nside, angs):

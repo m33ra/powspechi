@@ -358,9 +358,9 @@ using the angular power spectrum method.</p>
 <li><p><strong>averd</strong> (<em>dict</em>) – The averaged angular power spectrum of a distribution of type <span class="math notranslate nohighlight">\(f(\theta, \phi) = g(\theta) h(\phi)\)</span>. It
 follows the standard spectrum format.</p></li>
 <li><p><strong>blms</strong> (<em>float</em><em>, </em><em>array_like</em>) – The coefficients associated with the polar function <span class="math notranslate nohighlight">\(g(\theta)\)</span>. See <code class="docutils literal notranslate"><span class="pre">powspechi.alm_dNdphi</span></code> for its
-expression.</p></li>
+expression. The array indices should correspond to <span class="math notranslate nohighlight">\(b_{nn}\)</span>.</p></li>
 <li><p><strong>mixed</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <em>True</em>, the values of <span class="math notranslate nohighlight">\(v_1,v_2\)</span> are considered in the calculation of <span class="math notranslate nohighlight">\(v_3,v_4\)</span>, respectively.
-Default: <em>True</em>.</p></li>
+In that case, the values <span class="math notranslate nohighlight">\(b_{31}\)</span> and <span class="math notranslate nohighlight">\(b_{42}\)</span> should be appended to the <cite>blms</cite> array. Default: <em>True</em>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -390,7 +390,30 @@ Default: <em>True</em>.</p></li>
 </dl>
 </dd></dl>
 
-<span class="target" id="module-powspechi.maps_manip"></span><span class="target" id="module-powspechi.monte_carlos"></span><span class="target" id="module-powspechi.powspec_analysis"></span><div class="toctree-wrapper compound">
+<span class="target" id="module-powspechi.maps_manip"></span><dl class="function">
+<dt id="powspechi.maps_manip.readevtfile">
+<code class="sig-prename descclassname">powspechi.maps_manip.</code><code class="sig-name descname">readevtfile</code><span class="sig-paren">(</span><em class="sig-param">infile</em>, <em class="sig-param">skip_header=True</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.maps_manip.readevtfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read an event file with at least two columns, where the first should
+correspond to the particles’ azimuthal (<span class="math notranslate nohighlight">\(\phi\)</span>) coordinates and the
+second to the polar (<span class="math notranslate nohighlight">\(\theta\)</span>) coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>infile</strong> (<em>filenamestr</em>) – The event file name whose format is described above.</p></li>
+<li><p><strong>skip_header</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to skip the first line of the file. Default: <em>True</em>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>angs</strong> – A 2-D array whose shape is <em>(mult, ncol)</em>, where <em>mult</em> is the
+event multiplicity and <em>ncol</em> the number of columns.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float, ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-powspechi.monte_carlos"></span><span class="target" id="module-powspechi.powspec_analysis"></span><div class="toctree-wrapper compound">
 </div>
 </div>
 <div class="section" id="indices-and-tables">
