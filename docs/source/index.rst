@@ -26,6 +26,7 @@ Documentation
 
    powspec_calc_mod
    maps_manip_mod
+   monte_carlos_mod
 
 Indices and tables
 ==================

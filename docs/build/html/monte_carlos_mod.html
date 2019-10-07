@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>monte_carlos &mdash; powspechi 0.2.9.2dev0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="maps_manip" href="maps_manip_mod.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> powspechi
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="powspec_calc_mod.html"><code class="docutils literal notranslate"><span class="pre">powspec_calc</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="maps_manip_mod.html"><code class="docutils literal notranslate"><span class="pre">maps_manip</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">monte_carlos</span></code></a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">powspechi</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="docutils literal notranslate"><span class="pre">monte_carlos</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/monte_carlos_mod.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-powspechi.monte_carlos">
+<span id="monte-carlos"></span><h1><code class="docutils literal notranslate"><span class="pre">monte_carlos</span></code><a class="headerlink" href="#module-powspechi.monte_carlos" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="powspechi.monte_carlos.fconst">
+<code class="sig-prename descclassname">powspechi.monte_carlos.</code><code class="sig-name descname">fconst</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.monte_carlos.fconst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constant function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em><em>, </em><em>array_like</em>) – Independent variable.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>1</strong> – Output value, always 1.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float, scalar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="powspechi.monte_carlos.fct_sin">
+<code class="sig-prename descclassname">powspechi.monte_carlos.</code><code class="sig-name descname">fct_sin</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">fct</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.monte_carlos.fct_sin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply a function by <span class="math notranslate nohighlight">\(\sin{(x)}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em><em>, </em><em>array_like</em>) – Independent variable.</p></li>
+<li><p><strong>fct</strong> (<em>function</em>) – The chosen function to be multiplied by <span class="math notranslate nohighlight">\(\sin{(x)}\)</span>.</p></li>
+<li><p><strong>*args</strong> – Arguments to be passed to <cite>fct</cite>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword-only arguments to be passed to <cite>fct</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y</strong> – Output value associated with multiplying <cite>fct</cite> by <span class="math notranslate nohighlight">\(\sin{(x)}\)</span>.
+Its shape is the same as <cite>x</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float, ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>When picking a random polar point from a function defined on a sphere,
+just using <cite>fct</cite> will not yield the right result. It is therefore
+necessary to pick a point from <span class="math notranslate nohighlight">\(\sin{(x)}\)</span>. For a more
+detailed explanation, check ‘Sphere Point Picking’ on the internet or
+a text book.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="powspechi.monte_carlos.ffexp">
+<code class="sig-prename descclassname">powspechi.monte_carlos.</code><code class="sig-name descname">ffexp</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.monte_carlos.ffexp" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function symmetric around <span class="math notranslate nohighlight">\(\pi/2\)</span>, which is also the value
+associated with the function’s minimum.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em><em>, </em><em>array_like</em>) – Independent variable.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y</strong> – Output value whose shape is the same as <cite>x</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float, ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="powspechi.monte_carlos.fphi_psi">
+<code class="sig-prename descclassname">powspechi.monte_carlos.</code><code class="sig-name descname">fphi_psi</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">vns=None</em>, <em class="sig-param">psis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.monte_carlos.fphi_psi" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function (Fourier expansion) based on the flow ansatz used in
+heavy-ion studies <a class="footnote-reference brackets" href="#id3" id="id1">1</a> <a class="footnote-reference brackets" href="#id4" id="id2">2</a>. It has the following expression:</p>
+<div class="math notranslate nohighlight">
+\[h(x) = \frac{1}{2\pi} \left[ 1 + 2\sum_{n = 1}^{\infty} v_n \cos[n(x - \Psi_n)] \right],\]</div>
+<p>where <span class="math notranslate nohighlight">\(v_n,\Psi_n\)</span> are the amplitude and phase, respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em><em>, </em><em>array_like</em>) – Independent variable.</p></li>
+<li><p><strong>vns</strong> (<em>float</em><em>, </em><em>array_like</em><em>, </em><em>optional</em>) – Amplitudes of the Fourier expansion. If not given, it will be
+taken as zero. Default: <em>None</em>.</p></li>
+<li><p><strong>psis</strong> (<em>float</em><em>, </em><em>array_like</em><em>, </em><em>optional</em>) – Phases of the Fourier expansion. If not given, it will be taken
+as zero. Default: <em>None</em>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y</strong> – Output of the function. It has the same shape as <cite>x</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float, array_like</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><ol class="upperalpha simple" start="19">
+<li><p>Voloshin and Y. Zhang, “Flow study in relativistic nuclear collisions by Fourier expansion of azimuthal particle distributions”, Z. Phys. <strong>C70</strong>, 665 (1996).</p></li>
+</ol>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>A.M. Poskanzer and S.A. Voloshin, “Methods for analyzing flow in relativistic nuclear collisions”, Phys. Rev. <strong>C58</strong>, 1671 (1998).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="powspechi.monte_carlos.from_fct">
+<code class="sig-prename descclassname">powspechi.monte_carlos.</code><code class="sig-name descname">from_fct</code><span class="sig-paren">(</span><em class="sig-param">fct</em>, <em class="sig-param">size</em>, <em class="sig-param">xmin=0.0</em>, <em class="sig-param">xmax=1.0</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.monte_carlos.from_fct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw random values according to a chosen 1-D function within a
+specified interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fct</strong> (<em>function</em>) – Chosen function.</p></li>
+<li><p><strong>size</strong> (<em>int</em><em>, </em><em>scalar</em>) – Desired number of samples.</p></li>
+<li><p><strong>xmin</strong> (<em>float</em><em>, </em><em>scalar</em><em>, </em><em>optional</em>) – Lower boundary of the interval. Default: 0.</p></li>
+<li><p><strong>xmax</strong> (<em>float</em><em>, </em><em>scalar</em><em>, </em><em>optional</em>) – Upper boundary of the interval. Output values will be less than
+<cite>xmax</cite>. Default: 1.</p></li>
+<li><p><strong>*args</strong> – Arguments to be passed to <cite>fct</cite>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword-only arguments to be passed to <cite>fct</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>samples</strong> – A 1-D array whose length is determined by <cite>size</cite>. It contains
+random values distributed according to <cite>fct</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float, ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="powspechi.monte_carlos.isodist">
+<code class="sig-prename descclassname">powspechi.monte_carlos.</code><code class="sig-name descname">isodist</code><span class="sig-paren">(</span><em class="sig-param">mult</em>, <em class="sig-param">etacut=None</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.monte_carlos.isodist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an isotropic particle distribution with specified
+multiplicity and limitation in <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mult</strong> (<em>int</em><em>, </em><em>scalar</em>) – Multiplicity or size of the output sample.</p></li>
+<li><p><strong>etacut</strong> (<em>float</em><em>, </em><em>scalar</em><em>, </em><em>optional</em>) – Limit imposed on pseudorapidity (or polar angle), i.e.,
+<span class="math notranslate nohighlight">\(|\eta|\)</span> &lt; <cite>etacut</cite>. Default: <em>None</em>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>angs</strong> – A 2-D array with shape (<cite>mult</cite>, 2). Under column 0 are the
+azimuthal angles, while under column 1 are the polar angles.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float, ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>In order to pick a random number on the surface of a sphere,
+azimuthal and polar angles are drawn, respectively, from the
+following expressions:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\phi = 2\pi u,\\\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\theta = \arccos{(2v - 1)},\]</div>
+<p>where <span class="math notranslate nohighlight">\(u,v\)</span> are random variables within the interval (0, 1).</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="maps_manip_mod.html" class="btn btn-neutral float-left" title="maps_manip" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Meera Vieira Machado
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXXXX-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

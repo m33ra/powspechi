@@ -23,7 +23,7 @@ copyright = '2019, Meera Vieira Machado'
 author = 'Meera Vieira Machado'
 
 # The full version, including alpha/beta/rc tags
-release = '0.2.9.2dev0'
+release = '0.2.9.3dev0'
 
 
 # -- General configuration ---------------------------------------------------
