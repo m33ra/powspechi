@@ -356,7 +356,7 @@ def vns_calc(n, averd, blms, mixed=True):
         
     References
     ----------
-    .. [1] M. Machado, "Heavy ion anisotropies: a closer look at the angular power spectrum", arXiv:1907.00413 [hep-ph], 2019.
+    .. [1] M. Machado, "Heavy ion anisotropies: a closer look at the angular power spectrum", arXiv:1907.00413 [hep-ph] (2019).
 
     """
 
