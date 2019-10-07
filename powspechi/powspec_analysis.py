@@ -1,7 +1,7 @@
 import numpy as np
 import healpy as hp
-from powspechi.maps_manip import mapping, make_modf_maps
-from powspechi.powspec_calc import cld_from_maps, iso_background, subiso_corr
+from powspechi.maps_manip import mapping, make_modfmaps
+from powspechi.powspec_calc import maps2cld, isobackground, subisocorr
 import os
 import powspechi.pserrors as pserr
 
@@ -24,9 +24,9 @@ class powspec_analysis():
         Fthetaphi *= npix / np.sum(Fthetaphi)
         
         if 'flagd' in locals():
-            Clraw = cld_from_maps(tmap)
+            Clraw = maps2cld(tmap)
         else:
-            clds_raw, Clraw = cld_from_maps(tmap)
+            clds_raw, Clraw = maps2cld(tmap)
         
         self.tmap = Fthetaphi 
         self.Clraw = Clraw 
@@ -49,8 +49,8 @@ class powspec_analysis():
                 supmap *= npix / np.sum(supmap)
             
                 # Making the f_bar maps:
-                tmap_modf = make_modf_maps(tmap, supmap, eta_cut)
-                clds_modf, Clmodf = cld_from_maps(tmap_modf)
+                tmap_modf = make_modfmaps(tmap, supmap, eta_cut)
+                clds_modf, Clmodf = maps2cld(tmap_modf)
             
                 del tmap
                 del tmap_modf
@@ -58,7 +58,7 @@ class powspec_analysis():
                 self.Clmodf = Clmodf
                 
             else:
-                raise pserr.IsomapError('The desired supmap_iso file with nside = %d and |eta| < %s does not exist. Please refer to documentation.' %(nside, eta_cut))
+                raise pserr.IsomapError('The desired supmap_iso*.fits file with nside = %d and |eta| < %s does not exist. Please refer to documentation.' %(nside, eta_cut))
                     
         """
             Average power spectrum correction by multiplicity 
@@ -66,12 +66,12 @@ class powspec_analysis():
         
         # If one wants to correct the original average spectrum:
         if multcorr_raw:
-            Slraw = subiso_corr(Clraw, iso_background(multcorr_raw))
+            Slraw = subisocorr(Clraw, isobackground(multcorr_raw))
             self.Slraw = Slraw
         
         # If one wants to correct the modified average spectrum:
         if multcorr_modf and detcorr:
-            Slmodf = subiso_corr(Clmodf, iso_background(multcorr_modf))
+            Slmodf = subisocorr(Clmodf, isobackground(multcorr_modf))
             self.Slmodf = Slmodf
         elif multcorr_modf:
             raise pserr.PowSpecError('The averaged normalized spectrum does not exist.')

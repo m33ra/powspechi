@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maps_manip &mdash; powspechi 0.2.9.*dev0 documentation</title>
+  <title>maps_manip &mdash; powspechi 0.2.9.2dev0 documentation</title>
   
 
   
@@ -149,6 +149,129 @@
             
   <div class="section" id="module-powspechi.maps_manip">
 <span id="maps-manip"></span><h1><code class="docutils literal notranslate"><span class="pre">maps_manip</span></code><a class="headerlink" href="#module-powspechi.maps_manip" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="powspechi.maps_manip.getsupmapiso">
+<code class="sig-prename descclassname">powspechi.maps_manip.</code><code class="sig-name descname">getsupmapiso</code><span class="sig-paren">(</span><em class="sig-param">nside</em>, <em class="sig-param">etacut=0.9</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.maps_manip.getsupmapiso" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the desired supmap_iso.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nside</strong> (<em>int</em><em>, </em><em>scalar</em>) – Map resolution.</p></li>
+<li><p><strong>etacut</strong> (<em>float</em><em>, </em><em>scalar</em><em>, </em><em>optional</em>) – The imposed limit to pseudorapidity, such that <span class="math notranslate nohighlight">\(|\eta|\)</span> &lt; <cite>etacut</cite>.
+Default: 0.9.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>supmapiso</strong> – A 1-D array representing a HEALPix map with the specified resolution.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float, ndarray</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>IsomapError</strong> – If the <cite>supmap_iso*.fits</cite> file does not exist.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The maps in the files <cite>supmap_iso*.fits</cite> are meant to correct for edge effects when
+there is a limit on <span class="math notranslate nohighlight">\(\eta\)</span> (<span class="math notranslate nohighlight">\(\theta\)</span>) and it is necessary to divide the
+event maps their ensemble sum. In the case of no <span class="math notranslate nohighlight">\(\theta\)</span> limitations
+or no divisions, such maps are not necessary.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="powspechi.maps_manip.make_modfmaps">
+<code class="sig-prename descclassname">powspechi.maps_manip.</code><code class="sig-name descname">make_modfmaps</code><span class="sig-paren">(</span><em class="sig-param">maps</em>, <em class="sig-param">supmap</em>, <em class="sig-param">etacut=0.9</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.maps_manip.make_modfmaps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Divide an ensemble of maps by a single map, preferably the sum of
+said ensemble.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maps</strong> (<em>float</em><em>, </em><em>array_like</em>) – A single map or an ensemble of maps. They should be limited in
+pseudorapidity by the value in <cite>etacut</cite>.</p></li>
+<li><p><strong>supmap</strong> (<em>float</em><em>, </em><em>ndarray</em>) – A 1-D array usually representing the sum of all elements in <cite>maps</cite>.</p></li>
+<li><p><strong>etacut</strong> (<em>float</em><em>, </em><em>scalar</em><em>, </em><em>optional</em>) – The value of the pseudorapidity limit, <span class="math notranslate nohighlight">\(|\eta|\)</span> &lt; <cite>etacut</cite>.
+Default: 0.9.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>modf_maps</strong> – The result of dividing <cite>maps</cite> by <cite>supmap</cite>. Its shape will be the same
+as <cite>maps</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float, array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="powspechi.maps_manip.mapping">
+<code class="sig-prename descclassname">powspechi.maps_manip.</code><code class="sig-name descname">mapping</code><span class="sig-paren">(</span><em class="sig-param">nside</em>, <em class="sig-param">angs</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.maps_manip.mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a map with a chosen resolution out of particles angular
+coordinates <span class="math notranslate nohighlight">\((\phi, \theta)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nside</strong> (<em>int</em><em>, </em><em>scalar</em>) – Chosen map resolution.</p></li>
+<li><p><strong>angs</strong> (<em>float</em><em>, </em><em>ndarray</em>) – A 2-D array whose first column corresponds to the <span class="math notranslate nohighlight">\(\phi\)</span>
+coordinate while the second corresponds to the <span class="math notranslate nohighlight">\(\theta\)</span>
+coordinate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>maph</strong> – A 1-D array whose size depends on the <cite>nside</cite> through the relation
+<span class="math notranslate nohighlight">\(\mathrm{len(maph)} = 12 \cdot nside^2\)</span>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float, ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="powspechi.maps_manip.readevtfile">
+<code class="sig-prename descclassname">powspechi.maps_manip.</code><code class="sig-name descname">readevtfile</code><span class="sig-paren">(</span><em class="sig-param">infile</em>, <em class="sig-param">skip_header=True</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.maps_manip.readevtfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read an event file with at least two columns, where the first should
+correspond to the particles’ azimuthal (<span class="math notranslate nohighlight">\(\phi\)</span>) coordinates and the
+second to the polar (<span class="math notranslate nohighlight">\(\theta\)</span>) coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>infile</strong> (<em>filenamestr</em>) – The event file name whose format is described above.</p></li>
+<li><p><strong>skip_header</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to skip the first line of the file. Default: <em>True</em>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>angs</strong> – A 2-D array whose shape is <em>(mult, ncol)</em>, where <em>mult</em> is the
+event multiplicity and <em>ncol</em> the number of columns.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float, ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="powspechi.maps_manip.supmaps">
+<code class="sig-prename descclassname">powspechi.maps_manip.</code><code class="sig-name descname">supmaps</code><span class="sig-paren">(</span><em class="sig-param">maps</em>, <em class="sig-param">supmapiso=None</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.maps_manip.supmaps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum an ensemble of maps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maps</strong> (<em>float</em><em>, </em><em>array_like</em>) – A map or a list/array of maps.</p></li>
+<li><p><strong>supmapiso</strong> (<em>float</em><em>, </em><em>ndarray</em><em>, </em><em>optional</em>) – A map limited in <span class="math notranslate nohighlight">\(\theta\)</span>, used to account for the pixel weights
+on map edges. Default: <em>None</em>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>supmap</strong> – A 1-D array resultant of the sum of the elements in <cite>maps</cite>. If <cite>supmapiso</cite>
+is given, weights are assigned to the pixels on the edges of <cite>supmap</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float, ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

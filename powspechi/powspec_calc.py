@@ -26,7 +26,7 @@ def lns(nside):
     
     return ln
 
-def cld_from_maps(maps):
+def maps2cld(maps):
 
     r"""Calculate the angular power spectrum of a given map or maps.
 
@@ -90,7 +90,7 @@ def cld_from_maps(maps):
         return cld
 
 # Correction by N_lm subtraction: two functions
-def iso_background(clsres_file, skip=True):
+def isobackground(clsres_file, skip=True):
 
     r"""From a special type of file create a dictionary containing :math:`\langle N_{\ell} \rangle`, 
     i.e., an average power spectrum used to correct for the ensemble multiplicity.
@@ -137,7 +137,7 @@ def iso_background(clsres_file, skip=True):
 
     return clsres
 
-def subiso_corr(averd, iso_bkg):
+def subisocorr(averd, isobkg):
 
     r"""Subtract the average spectrum calculated through HEALPix :math:`\langle C_{\ell} \rangle` from the 
     spectrum of ensemble multiplicity :math:`\langle N_{\ell}\rangle`.
@@ -148,7 +148,7 @@ def subiso_corr(averd, iso_bkg):
         A dictionary containing the power spectra :math:`\langle C_{\ell} \rangle` and :math:`\langle C^{m\neq0}_{\ell} \rangle`.
         They should be contained in a list with index 0 for the mean and index 1 for its error. Such lists should be
         values corresponding to different keys. Their recommended names are 'full' and 'mdz', respectively.
-    iso_bkg : dict
+    isobkg : dict
         A dictionary following the same format, i.e., same keys and list types, as `averd`. It should contain the
         averaged spectrum used to correct for the ensemble's multiplicity distribution, :math:`\langle N_{\ell} \rangle`.
 
@@ -163,12 +163,12 @@ def subiso_corr(averd, iso_bkg):
     averd_sic = {}
 
     for key in averd.keys():
-        averd_sic[key] = [averd[key][0] - iso_bkg[key][0], np.sqrt(averd[key][1]**2 + iso_bkg[key][1]**2)]
+        averd_sic[key] = [averd[key][0] - isobkg[key][0], np.sqrt(averd[key][1]**2 + isobkg[key][1]**2)]
 
     return averd_sic
 
 # Averaging over vertices -> nevts should be a dictionary:
-def av_over_zvtx(avcls, nevts):
+def avcls_zvtx(avcls, nevts):
 
     r"""Calculate the weighted average of the averaged spectra from distinct event ensembles.
 
@@ -202,7 +202,7 @@ def av_over_zvtx(avcls, nevts):
 # Calculates the alm coefficients of a function f(theta, phi) ~ g(theta)*h(phi)
 # When vns is set to an array of ones and psis to zero, one can get the blm
 # vns is an array with v_n values beginning with v_1, even if that is zero
-def alm_dNdphi(l, m, eta_cut=0.9, vns=np.ones(4), psis=np.zeros(4), g_sim=fconst, *args, **kwargs):
+def alm_dNdphi(l, m, etacut=0.9, vns=np.ones(4), psis=np.zeros(4), gsim=fconst, *args, **kwargs):
 
     r"""Calculate the :math:`a_{\ell m}` coefficients of a function of type :math:`f(\theta, \phi) = g(\theta) \cdot h(\phi)`,
     where:
@@ -215,18 +215,18 @@ def alm_dNdphi(l, m, eta_cut=0.9, vns=np.ones(4), psis=np.zeros(4), g_sim=fconst
         The multipole moment :math:`\ell` associated with the polar angle :math:`\theta`
     m : int, scalar
         The mode associated with the azimuthal angle :math:`\phi`
-    eta_cut : float, scalar, optional
-        The limit imposed on pseudorapidity, i.e., :math:`|\eta|` < `eta_cut`. Default: 0.9.
+    etacut : float, scalar, optional
+        The limit imposed on pseudorapidity, i.e., :math:`|\eta|` < `etacut`. Default: 0.9.
     vns : float, optional
         The array representing :math:`v_n`, with :math:`n > 0`. Default: array([1., 1., 1., 1.]).
     psis : float, optional
         The array representing :math:`\Psi_n`, with :math:`n > 0`. Default: array([0., 0., 0., 0.])
-    g_sim : function, optional
+    gsim : function, optional
         The polar function :math:`g(\theta)`. Default: ``powspechi.fconst``.
     *args
-        Arguments to be passed to `g_sim`
+        Arguments to be passed to `gsim`
     **kwargs
-        Keyword-only arguments to be passed to `g_sim`
+        Keyword-only arguments to be passed to `gsim`
 
     Returns
     -------
@@ -246,8 +246,8 @@ def alm_dNdphi(l, m, eta_cut=0.9, vns=np.ones(4), psis=np.zeros(4), g_sim=fconst
 
     """
 
-    if eta_cut:
-        qi, qf = 2.*np.arctan(np.exp(-np.array([eta_cut, -eta_cut])))
+    if etacut:
+        qi, qf = 2.*np.arctan(np.exp(-np.array([etacut, -etacut])))
     else:
         qi, qf = 0., np.pi
 
@@ -256,9 +256,9 @@ def alm_dNdphi(l, m, eta_cut=0.9, vns=np.ones(4), psis=np.zeros(4), g_sim=fconst
     if m > n:
         a_lm = 0.+0.j
     else:
-        c0 = 1./np.sqrt(4.*np.pi)*quad(lambda theta: np.sin(theta)*g_sim(theta, *args, **kwargs), qi, qf)[0] # Sets a_00**2 = 4*pi
+        c0 = 1./np.sqrt(4.*np.pi)*quad(lambda theta: np.sin(theta)*gsim(theta, *args, **kwargs), qi, qf)[0] # Sets a_00**2 = 4*pi
         b_lm = np.sqrt(4.*np.pi)/c0*np.sqrt((2.*l + 1.)/(4.*np.pi)*factorial(l - m)/factorial(l + m))*quad(lambda theta: np.sin(theta)*
-            g_sim(theta, *args, **kwargs)*lpmv(m, l, np.cos(theta)), qi, qf)[0]
+            gsim(theta, *args, **kwargs)*lpmv(m, l, np.cos(theta)), qi, qf)[0]
 
         if m == 0:
             a_lm = b_lm
