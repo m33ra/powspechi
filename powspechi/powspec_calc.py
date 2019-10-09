@@ -99,7 +99,7 @@ def isobackground(clsres_file, skip=True):
     ----------
     clsres_file : string
         A file containing the average power spectrum :math:`\langle N_{\ell} \rangle`. It has four 
-        columns which follow the order: 'full'  'err_full'  'mdz'   'err_mdz'. Refer to ``powspechi.cld_from_maps``
+        columns which follow the order: 'full'  'err_full'  'mdz'   'err_mdz'. Refer to ``maps2cld``
         to see the meaning of 'full' and 'mdz'. As for the prefix 'err', it indicates the error on the mean of
         its corresponding spectrum.
     skip : bool, optional
@@ -216,13 +216,14 @@ def alm_dNdphi(l, m, etacut=0.9, vns=np.ones(4), psis=np.zeros(4), gsim=fconst, 
     m : int, scalar
         The mode associated with the azimuthal angle :math:`\phi`
     etacut : float, scalar, optional
-        The limit imposed on pseudorapidity, i.e., :math:`|\eta|` < `etacut`. Default: 0.9.
+        The limit imposed on pseudorapidity, i.e., :math:`|\eta|` < `etacut`. If there is
+        no limit, just set it to *None*. Default: 0.9.
     vns : float, optional
         The array representing :math:`v_n`, with :math:`n > 0`. Default: array([1., 1., 1., 1.]).
     psis : float, optional
         The array representing :math:`\Psi_n`, with :math:`n > 0`. Default: array([0., 0., 0., 0.])
     gsim : function, optional
-        The polar function :math:`g(\theta)`. Default: ``powspechi.fconst``.
+        The polar function :math:`g(\theta)`. Default: ``monte_carlos.fconst``.
     *args
         Arguments to be passed to `gsim`
     **kwargs
@@ -239,7 +240,7 @@ def alm_dNdphi(l, m, etacut=0.9, vns=np.ones(4), psis=np.zeros(4), gsim=fconst, 
     It should be remarked that if the default values of `vns` and `psis` are used, one should get in return the
     values
 
-    .. math:: b_{\ell m} \sim \int_{q_i}^{q_f} \sin{\theta} g(\theta) P_{\ell m}(\cos{\theta}),
+    .. math:: b_{\ell m} \sim \int_{q_i}^{q_f} \sin{\theta} g(\theta) P_{\ell m}(\cos{\theta})d\theta,
 
     where :math:`(q_i, q_f)` is the interval in :math:`\theta` corresponding to the imposed :math:`\eta` limit 
     and :math:`P_{\ell m}` are the associated Legendre polynomials.
@@ -290,7 +291,7 @@ def cls_calc(lsize, alms, *args, **kwargs):
 
     Notes
     -----
-    It is recommended to use ``powspechi.cls_calc`` with ``powspechi.alm_dNdphi`` as the `alms`
+    It is recommended to use ``cls_calc`` with ``alm_dNdphi`` as the `alms`
     parameter. One may create their own `alms` function to analytically calculate the angular
     power spectrum of functions **not** belonging to the type :math:`f(\theta, \phi) = g(\theta)\cdot h(\phi)`.
     However, keep in mind the execution time.
@@ -327,7 +328,7 @@ def vns_calc(n, averd, blms, mixed=True):
         The averaged angular power spectrum of a distribution of type :math:`f(\theta, \phi) = g(\theta) h(\phi)`. It
         follows the standard spectrum format.
     blms : float, array_like
-        The coefficients associated with the polar function :math:`g(\theta)`. See ``powspechi.alm_dNdphi`` for its
+        The coefficients associated with the polar function :math:`g(\theta)`. See ``alm_dNdphi`` for its
         expression. The array indices should correspond to :math:`b_{nn}`.
     mixed : bool, optional
         If *True*, the values of :math:`v_1,v_2` are considered in the calculation of :math:`v_3,v_4`, respectively.

@@ -23,7 +23,7 @@ copyright = '2019, Meera Vieira Machado'
 author = 'Meera Vieira Machado'
 
 # The full version, including alpha/beta/rc tags
-release = '0.2.9.3dev0'
+release = '0.2.9.4dev0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -42,6 +42,8 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# Napoleon settings
+napoleon_use_ivar = True
 
 # -- Options for HTML output -------------------------------------------------
 

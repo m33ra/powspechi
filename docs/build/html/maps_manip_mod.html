@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maps_manip &mdash; powspechi 0.2.9.2dev0 documentation</title>
+  <title>maps_manip - Manipulate maps &mdash; powspechi 0.2.9.3dev0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="monte_carlos" href="monte_carlos_mod.html" />
-    <link rel="prev" title="powspec_calc" href="powspec_calc_mod.html" /> 
+    <link rel="next" title="monte_carlos - Functions and Toy MC" href="monte_carlos_mod.html" />
+    <link rel="prev" title="powspec_calc - All things power spectrum" href="powspec_calc_mod.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,9 +82,10 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="powspec_calc_mod.html"><code class="docutils literal notranslate"><span class="pre">powspec_calc</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">maps_manip</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="monte_carlos_mod.html"><code class="docutils literal notranslate"><span class="pre">monte_carlos</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="powspec_calc_mod.html"><code class="docutils literal notranslate"><span class="pre">powspec_calc</span></code> - All things power spectrum</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">maps_manip</span></code> - Manipulate maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monte_carlos_mod.html"><code class="docutils literal notranslate"><span class="pre">monte_carlos</span></code> - Functions and Toy MC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="powspec_analysis_mod.html"><code class="docutils literal notranslate"><span class="pre">powspec_analysis</span></code> - Full analysis</a></li>
 </ul>
 
             
@@ -130,7 +131,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li><code class="docutils literal notranslate"><span class="pre">maps_manip</span></code></li>
+      <li><code class="docutils literal notranslate"><span class="pre">maps_manip</span></code> - Manipulate maps</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -150,7 +151,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="module-powspechi.maps_manip">
-<span id="maps-manip"></span><h1><code class="docutils literal notranslate"><span class="pre">maps_manip</span></code><a class="headerlink" href="#module-powspechi.maps_manip" title="Permalink to this headline">¶</a></h1>
+<span id="maps-manip-manipulate-maps"></span><h1><code class="docutils literal notranslate"><span class="pre">maps_manip</span></code> - Manipulate maps<a class="headerlink" href="#module-powspechi.maps_manip" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="powspechi.maps_manip.getsupmapiso">
 <code class="sig-prename descclassname">powspechi.maps_manip.</code><code class="sig-name descname">getsupmapiso</code><span class="sig-paren">(</span><em class="sig-param">nside</em>, <em class="sig-param">etacut=0.9</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.maps_manip.getsupmapiso" title="Permalink to this definition">¶</a></dt>
@@ -181,8 +182,8 @@ or no divisions, such maps are not necessary.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="powspechi.maps_manip.make_modfmaps">
-<code class="sig-prename descclassname">powspechi.maps_manip.</code><code class="sig-name descname">make_modfmaps</code><span class="sig-paren">(</span><em class="sig-param">maps</em>, <em class="sig-param">supmap</em>, <em class="sig-param">etacut=0.9</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.maps_manip.make_modfmaps" title="Permalink to this definition">¶</a></dt>
+<dt id="powspechi.maps_manip.make_normmaps">
+<code class="sig-prename descclassname">powspechi.maps_manip.</code><code class="sig-name descname">make_normmaps</code><span class="sig-paren">(</span><em class="sig-param">maps</em>, <em class="sig-param">supmap</em>, <em class="sig-param">etacut=0.9</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.maps_manip.make_normmaps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Divide an ensemble of maps by a single map, preferably the sum of
 said ensemble.</p>
 <dl class="field-list simple">
@@ -192,15 +193,37 @@ said ensemble.</p>
 pseudorapidity by the value in <cite>etacut</cite>.</p></li>
 <li><p><strong>supmap</strong> (<em>float</em><em>, </em><em>ndarray</em>) – A 1-D array usually representing the sum of all elements in <cite>maps</cite>.</p></li>
 <li><p><strong>etacut</strong> (<em>float</em><em>, </em><em>scalar</em><em>, </em><em>optional</em>) – The value of the pseudorapidity limit, <span class="math notranslate nohighlight">\(|\eta|\)</span> &lt; <cite>etacut</cite>.
-Default: 0.9.</p></li>
+If there is no limit, set it to <em>None</em>. Default: 0.9.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>modf_maps</strong> – The result of dividing <cite>maps</cite> by <cite>supmap</cite>. Its shape will be the same
+<dd class="field-even"><p><strong>norm_maps</strong> – The result of dividing <cite>maps</cite> by <cite>supmap</cite>. Its shape will be the same
 as <cite>maps</cite>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>float, array_like</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>In the power spectral analysis at hand <a class="footnote-reference brackets" href="#id3" id="id1">1</a> <a class="footnote-reference brackets" href="#id4" id="id2">2</a>, <cite>supmap</cite> is the sum
+of all event maps and it is represented by <span class="math notranslate nohighlight">\(F^{all}(\mathbf{n_p})\)</span>,
+where <span class="math notranslate nohighlight">\(\mathbf{n_p}\)</span> is a pixel number. A normalized map is thus defined
+by the following expression:</p>
+<div class="math notranslate nohighlight">
+\[\bar{f}(\mathbf{n_p}) = \frac{f(\mathbf{n_p})}{F^{all}(\mathbf{n_p})},\]</div>
+<p>where <span class="math notranslate nohighlight">\(f(\mathbf{n_p})\)</span> is a map from the original event ensemble, the latter
+denoted by the`maps` parameter.</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><ol class="upperalpha simple" start="13">
+<li><p>Machado, P.H. Damgaard, J.J. Gaardhoeje, and C. Bourjau, “Angular power spectrum of heavy ion collisions”, Phys. Rev. C <strong>99</strong>, 054910 (2019).</p></li>
+</ol>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><ol class="upperalpha simple" start="13">
+<li><p>Machado, “Heavy ion anisotropies: a closer look at the angular power spectrum”, arXiv:1907.00413 [hep-ph] (2019).</p></li>
+</ol>
 </dd>
 </dl>
 </dd></dl>
@@ -284,10 +307,10 @@ is given, weights are assigned to the pixels on the edges of <cite>supmap</cite>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="monte_carlos_mod.html" class="btn btn-neutral float-right" title="monte_carlos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="monte_carlos_mod.html" class="btn btn-neutral float-right" title="monte_carlos - Functions and Toy MC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="powspec_calc_mod.html" class="btn btn-neutral float-left" title="powspec_calc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="powspec_calc_mod.html" class="btn btn-neutral float-left" title="powspec_calc - All things power spectrum" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

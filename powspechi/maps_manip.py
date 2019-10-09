@@ -149,8 +149,8 @@ def supmaps(maps, supmapiso=None):
 
 	return supmap
 
-# Make modf maps out of the given maps and a supmap
-def make_modfmaps(maps, supmap, etacut=0.9):
+# Make norm maps out of the given maps and a supmap
+def make_normmaps(maps, supmap, etacut=0.9):
 
 	r"""Divide an ensemble of maps by a single map, preferably the sum of
 	said ensemble.
@@ -164,13 +164,30 @@ def make_modfmaps(maps, supmap, etacut=0.9):
 		A 1-D array usually representing the sum of all elements in `maps`.
 	etacut : float, scalar, optional
 		The value of the pseudorapidity limit, :math:`|\eta|` < `etacut`.
-		Default: 0.9.
+		If there is no limit, set it to *None*. Default: 0.9.
 
 	Returns
 	-------
-	modf_maps : float, array_like
+	norm_maps : float, array_like
 		The result of dividing `maps` by `supmap`. Its shape will be the same
-		as `maps`.
+		as `maps`. 
+
+	Notes
+	-----
+	In the power spectral analysis at hand [1]_ [2]_, `supmap` is the sum
+	of all event maps and it is represented by :math:`F^{all}(\mathbf{n_p})`,
+	where :math:`\mathbf{n_p}` is a pixel number. A normalized map is thus defined 
+	by the following expression:
+
+	.. math:: \bar{f}(\mathbf{n_p}) = \frac{f(\mathbf{n_p})}{F^{all}(\mathbf{n_p})},
+
+	where :math:`f(\mathbf{n_p})` is a map from the original event ensemble, the latter 
+	denoted by the`maps` parameter.
+
+	References
+	----------
+	.. [1] M. Machado, P.H. Damgaard, J.J. Gaardhoeje, and C. Bourjau, "Angular power spectrum of heavy ion collisions", Phys. Rev. C **99**, 054910 (2019).
+	.. [2] M. Machado, "Heavy ion anisotropies: a closer look at the angular power spectrum", arXiv:1907.00413 [hep-ph] (2019). 
 
 	"""
 
@@ -180,15 +197,19 @@ def make_modfmaps(maps, supmap, etacut=0.9):
 	npix = hp.get_map_size(maps[0])
 	nside = hp.npix2nside(npix)
 
-	qi, qf = 2.*np.arctan(np.exp(-np.array([etacut, -etacut])))
-	mask = np.ones(npix)
-	mask[hp.query_strip(nside, qi, qf)] = 0.
+	if etacut:
+		qi, qf = 2.*np.arctan(np.exp(-np.array([etacut, -etacut])))
+		mask = np.ones(npix)
+		mask[hp.query_strip(nside, qi, qf)] = 0.
+	else:
+		qi, qf = 0., 2*np.pi
+		mask = 0.
 
 	finmap = supmap/npix*(1.-mask)+mask
 	pixs = np.where(finmap == 0.)
 	finmap[pixs] = 1.
 
-	modf_maps = maps / (npix*finmap)
-	modf_maps *= npix / np.sum(modf_maps, axis=1)[:, None]
+	norm_maps = maps / (npix*finmap)
+	norm_maps *= npix / np.sum(norm_maps, axis=1)[:, None]
 
-	return modf_maps
+	return norm_maps
