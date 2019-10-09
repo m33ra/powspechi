@@ -38,7 +38,7 @@ def ffexp(x):
     return y
 
 # Sinfying a function :P:
-def fct_sin(x, fct, *args, **kwargs):
+def fct_sin(x, sfct, *args, **kwargs):
 
     r"""Multiply a function by :math:`\sin{(x)}`.
 
@@ -46,7 +46,7 @@ def fct_sin(x, fct, *args, **kwargs):
     ----------
     x : float, array_like
         Independent variable.
-    fct : function
+    sfct : function
         The chosen function to be multiplied by :math:`\sin{(x)}`.
     *args 
         Arguments to be passed to `fct`.

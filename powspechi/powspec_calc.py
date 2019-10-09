@@ -199,7 +199,7 @@ def avcls_zvtx(avcls, nevts):
 
     return mean_zvtx
 
-# Calculates the alm coefficients of a function f(theta, phi) ~ g(theta)*h(phi)
+# Calculates the alm coefficients of a function f(theta, phi) = g(theta)*h(phi)
 # When vns is set to an array of ones and psis to zero, one can get the blm
 # vns is an array with v_n values beginning with v_1, even if that is zero
 def alm_dNdphi(l, m, etacut=0.9, vns=np.ones(4), psis=np.zeros(4), gsim=fconst, *args, **kwargs):
