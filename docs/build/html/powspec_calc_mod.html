@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>powspec_calc &mdash; powspechi 0.2.9.2dev0 documentation</title>
+  <title>powspec_calc - All things power spectrum &mdash; powspechi 0.2.9.3dev0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="maps_manip" href="maps_manip_mod.html" />
+    <link rel="next" title="maps_manip - Manipulate maps" href="maps_manip_mod.html" />
     <link rel="prev" title="Welcome to powspechi!" href="index.html" /> 
 </head>
 
@@ -82,9 +82,10 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">powspec_calc</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="maps_manip_mod.html"><code class="docutils literal notranslate"><span class="pre">maps_manip</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="monte_carlos_mod.html"><code class="docutils literal notranslate"><span class="pre">monte_carlos</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">powspec_calc</span></code> - All things power spectrum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maps_manip_mod.html"><code class="docutils literal notranslate"><span class="pre">maps_manip</span></code> - Manipulate maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monte_carlos_mod.html"><code class="docutils literal notranslate"><span class="pre">monte_carlos</span></code> - Functions and Toy MC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="powspec_analysis_mod.html"><code class="docutils literal notranslate"><span class="pre">powspec_analysis</span></code> - Full analysis</a></li>
 </ul>
 
             
@@ -130,7 +131,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li><code class="docutils literal notranslate"><span class="pre">powspec_calc</span></code></li>
+      <li><code class="docutils literal notranslate"><span class="pre">powspec_calc</span></code> - All things power spectrum</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -150,7 +151,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="module-powspechi.powspec_calc">
-<span id="powspec-calc"></span><h1><code class="docutils literal notranslate"><span class="pre">powspec_calc</span></code><a class="headerlink" href="#module-powspechi.powspec_calc" title="Permalink to this headline">¶</a></h1>
+<span id="powspec-calc-all-things-power-spectrum"></span><h1><code class="docutils literal notranslate"><span class="pre">powspec_calc</span></code> - All things power spectrum<a class="headerlink" href="#module-powspechi.powspec_calc" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="powspechi.powspec_calc.alm_dNdphi">
 <code class="sig-prename descclassname">powspechi.powspec_calc.</code><code class="sig-name descname">alm_dNdphi</code><span class="sig-paren">(</span><em class="sig-param">l</em>, <em class="sig-param">m</em>, <em class="sig-param">etacut=0.9</em>, <em class="sig-param">vns=array([1.</em>, <em class="sig-param">1.</em>, <em class="sig-param">1.</em>, <em class="sig-param">1.])</em>, <em class="sig-param">psis=array([0.</em>, <em class="sig-param">0.</em>, <em class="sig-param">0.</em>, <em class="sig-param">0.])</em>, <em class="sig-param">gsim=&lt;function fconst&gt;</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.powspec_calc.alm_dNdphi" title="Permalink to this definition">¶</a></dt>
@@ -163,10 +164,11 @@ where:</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>l</strong> (<em>int</em><em>, </em><em>scalar</em>) – The multipole moment <span class="math notranslate nohighlight">\(\ell\)</span> associated with the polar angle <span class="math notranslate nohighlight">\(\theta\)</span></p></li>
 <li><p><strong>m</strong> (<em>int</em><em>, </em><em>scalar</em>) – The mode associated with the azimuthal angle <span class="math notranslate nohighlight">\(\phi\)</span></p></li>
-<li><p><strong>etacut</strong> (<em>float</em><em>, </em><em>scalar</em><em>, </em><em>optional</em>) – The limit imposed on pseudorapidity, i.e., <span class="math notranslate nohighlight">\(|\eta|\)</span> &lt; <cite>etacut</cite>. Default: 0.9.</p></li>
+<li><p><strong>etacut</strong> (<em>float</em><em>, </em><em>scalar</em><em>, </em><em>optional</em>) – The limit imposed on pseudorapidity, i.e., <span class="math notranslate nohighlight">\(|\eta|\)</span> &lt; <cite>etacut</cite>. If there is
+no limit, just set it to <em>None</em>. Default: 0.9.</p></li>
 <li><p><strong>vns</strong> (<em>float</em><em>, </em><em>optional</em>) – The array representing <span class="math notranslate nohighlight">\(v_n\)</span>, with <span class="math notranslate nohighlight">\(n &gt; 0\)</span>. Default: array([1., 1., 1., 1.]).</p></li>
 <li><p><strong>psis</strong> (<em>float</em><em>, </em><em>optional</em>) – The array representing <span class="math notranslate nohighlight">\(\Psi_n\)</span>, with <span class="math notranslate nohighlight">\(n &gt; 0\)</span>. Default: array([0., 0., 0., 0.])</p></li>
-<li><p><strong>gsim</strong> (<em>function</em><em>, </em><em>optional</em>) – The polar function <span class="math notranslate nohighlight">\(g(\theta)\)</span>. Default: <code class="docutils literal notranslate"><span class="pre">powspechi.fconst</span></code>.</p></li>
+<li><p><strong>gsim</strong> (<em>function</em><em>, </em><em>optional</em>) – The polar function <span class="math notranslate nohighlight">\(g(\theta)\)</span>. Default: <code class="docutils literal notranslate"><span class="pre">monte_carlos.fconst</span></code>.</p></li>
 <li><p><strong>*args</strong> – Arguments to be passed to <cite>gsim</cite></p></li>
 <li><p><strong>**kwargs</strong> – Keyword-only arguments to be passed to <cite>gsim</cite></p></li>
 </ul>
@@ -183,7 +185,7 @@ harmonics.</p>
 <p>It should be remarked that if the default values of <cite>vns</cite> and <cite>psis</cite> are used, one should get in return the
 values</p>
 <div class="math notranslate nohighlight">
-\[b_{\ell m} \sim \int_{q_i}^{q_f} \sin{\theta} g(\theta) P_{\ell m}(\cos{\theta}),\]</div>
+\[b_{\ell m} \sim \int_{q_i}^{q_f} \sin{\theta} g(\theta) P_{\ell m}(\cos{\theta})d\theta,\]</div>
 <p>where <span class="math notranslate nohighlight">\((q_i, q_f)\)</span> is the interval in <span class="math notranslate nohighlight">\(\theta\)</span> corresponding to the imposed <span class="math notranslate nohighlight">\(\eta\)</span> limit
 and <span class="math notranslate nohighlight">\(P_{\ell m}\)</span> are the associated Legendre polynomials.</p>
 </dd></dl>
@@ -233,7 +235,7 @@ the full spectrum and <span class="math notranslate nohighlight">\(C^{m\neq0}_{\
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>It is recommended to use <code class="docutils literal notranslate"><span class="pre">powspechi.cls_calc</span></code> with <code class="docutils literal notranslate"><span class="pre">powspechi.alm_dNdphi</span></code> as the <cite>alms</cite>
+<p>It is recommended to use <code class="docutils literal notranslate"><span class="pre">cls_calc</span></code> with <code class="docutils literal notranslate"><span class="pre">alm_dNdphi</span></code> as the <cite>alms</cite>
 parameter. One may create their own <cite>alms</cite> function to analytically calculate the angular
 power spectrum of functions <strong>not</strong> belonging to the type <span class="math notranslate nohighlight">\(f(\theta, \phi) = g(\theta)\cdot h(\phi)\)</span>.
 However, keep in mind the execution time.</p>
@@ -248,7 +250,7 @@ i.e., an average power spectrum used to correct for the ensemble multiplicity.</
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>clsres_file</strong> (<em>string</em>) – A file containing the average power spectrum <span class="math notranslate nohighlight">\(\langle N_{\ell} \rangle\)</span>. It has four
-columns which follow the order: ‘full’  ‘err_full’  ‘mdz’   ‘err_mdz’. Refer to <code class="docutils literal notranslate"><span class="pre">powspechi.cld_from_maps</span></code>
+columns which follow the order: ‘full’  ‘err_full’  ‘mdz’   ‘err_mdz’. Refer to <code class="docutils literal notranslate"><span class="pre">maps2cld</span></code>
 to see the meaning of ‘full’ and ‘mdz’. As for the prefix ‘err’, it indicates the error on the mean of
 its corresponding spectrum.</p></li>
 <li><p><strong>skip</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <em>True</em> it skips the first line of the file, whereas if set to <em>False</em> no line will be skipped.
@@ -359,7 +361,7 @@ using the angular power spectrum method.</p>
 <li><p><strong>n</strong> (<em>int</em><em>, </em><em>scalar</em>) – The index of <span class="math notranslate nohighlight">\(v_n\)</span>. Should be larger than 0.</p></li>
 <li><p><strong>averd</strong> (<em>dict</em>) – The averaged angular power spectrum of a distribution of type <span class="math notranslate nohighlight">\(f(\theta, \phi) = g(\theta) h(\phi)\)</span>. It
 follows the standard spectrum format.</p></li>
-<li><p><strong>blms</strong> (<em>float</em><em>, </em><em>array_like</em>) – The coefficients associated with the polar function <span class="math notranslate nohighlight">\(g(\theta)\)</span>. See <code class="docutils literal notranslate"><span class="pre">powspechi.alm_dNdphi</span></code> for its
+<li><p><strong>blms</strong> (<em>float</em><em>, </em><em>array_like</em>) – The coefficients associated with the polar function <span class="math notranslate nohighlight">\(g(\theta)\)</span>. See <code class="docutils literal notranslate"><span class="pre">alm_dNdphi</span></code> for its
 expression. The array indices should correspond to <span class="math notranslate nohighlight">\(b_{nn}\)</span>.</p></li>
 <li><p><strong>mixed</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <em>True</em>, the values of <span class="math notranslate nohighlight">\(v_1,v_2\)</span> are considered in the calculation of <span class="math notranslate nohighlight">\(v_3,v_4\)</span>, respectively.
 In that case, the values <span class="math notranslate nohighlight">\(b_{31}\)</span> and <span class="math notranslate nohighlight">\(b_{42}\)</span> should be appended to the <cite>blms</cite> array. Default: <em>True</em>.</p></li>
@@ -402,7 +404,7 @@ In that case, the values <span class="math notranslate nohighlight">\(b_{31}\)</
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="maps_manip_mod.html" class="btn btn-neutral float-right" title="maps_manip" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="maps_manip_mod.html" class="btn btn-neutral float-right" title="maps_manip - Manipulate maps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to powspechi!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -10,7 +10,7 @@ Welcome to powspechi!
    :maxdepth: 2
    :caption: Contents:
 
-A package of power spectral fun!
+A package of power spectral fun :math:`\theta`!
 
 Installation
 ============
@@ -27,6 +27,7 @@ Documentation
    powspec_calc_mod
    maps_manip_mod
    monte_carlos_mod
+   powspec_analysis_mod
 
 Indices and tables
 ==================

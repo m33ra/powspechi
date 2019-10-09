@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>powspec_analysis - Full analysis &mdash; powspechi 0.2.9.3dev0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="monte_carlos - Functions and Toy MC" href="monte_carlos_mod.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> powspechi
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="powspec_calc_mod.html"><code class="docutils literal notranslate"><span class="pre">powspec_calc</span></code> - All things power spectrum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maps_manip_mod.html"><code class="docutils literal notranslate"><span class="pre">maps_manip</span></code> - Manipulate maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monte_carlos_mod.html"><code class="docutils literal notranslate"><span class="pre">monte_carlos</span></code> - Functions and Toy MC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">powspec_analysis</span></code> - Full analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">powspechi</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="docutils literal notranslate"><span class="pre">powspec_analysis</span></code> - Full analysis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/powspec_analysis_mod.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="powspec-analysis-full-analysis">
+<h1><code class="docutils literal notranslate"><span class="pre">powspec_analysis</span></code> - Full analysis<a class="headerlink" href="#powspec-analysis-full-analysis" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="powspechi.powspec_analysis">
+<em class="property">class </em><code class="sig-prename descclassname">powspechi.</code><code class="sig-name descname">powspec_analysis</code><span class="sig-paren">(</span><em class="sig-param">nside</em>, <em class="sig-param">angs</em>, <em class="sig-param">etacut=0.9</em>, <em class="sig-param">detcorr=False</em>, <em class="sig-param">multcorr_norm=None</em>, <em class="sig-param">multcorr_obs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#powspechi.powspec_analysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the full analysis and extract the final angular power spectrum
+<span class="math notranslate nohighlight">\(\langle S_{\ell}^{m \neq 0} \rangle\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nside</strong> (<em>int</em><em>, </em><em>scalar</em>) – Chosen map resolution.</p></li>
+<li><p><strong>angs</strong> (<em>float</em><em>, </em><em>array_like</em>) – List or array of angular coordinates of all events. Each of said events
+should be a 2-D array with shape (length, 2), where columns 0 and 1 stand
+for the azimuhtal <span class="math notranslate nohighlight">\(\phi\)</span> and polar <span class="math notranslate nohighlight">\(\theta\)</span> coordinates,
+respectively.</p></li>
+<li><p><strong>etacut</strong> (<em>float</em><em>, </em><em>scalar</em><em>, </em><em>optional</em>) – Limit imposed on pseudorapidity, i.e., <span class="math notranslate nohighlight">\(|\eta|\)</span> &lt; <cite>etacut</cite>. If there
+is no limit, just set it to <em>None</em>. Default: 0.9.</p></li>
+<li><p><strong>detcorr</strong> (<em>bool</em><em>, </em><em>optional</em>) – Determines whether to divide the observed maps by their ensemble sum.
+Usually used when there is a need to correct for detector’s non-uniform
+efficiency or to compare a heavy-ion model to the published angular power
+spectrum <a class="footnote-reference brackets" href="#id2" id="id1">1</a>. Default: <em>False</em>.</p></li>
+<li><p><strong>multcorr_norm</strong> (<em>filenamestr</em><em>, </em><em>optional</em>) – File containing the averaged spectrum which corrects for event multiplicity
+the normalized spectrum. Format: four columns respectively representing the
+full averaged spectrum, its mean error, the averaged spectrum for <span class="math notranslate nohighlight">\(m\neq0\)</span>
+and its mean error. First line will be skipped. Also, it can only be activated
+if <cite>detcorr</cite> = <em>True</em>. Default: <em>None</em>.</p></li>
+<li><p><strong>multcorr_obs</strong> (<em>filenamestr</em><em>, </em><em>optional</em>) – File containing the averaged spectrum which corrects for event multiplicity
+the observed spectrum. Format is the same as in <cite>multcorr_norm</cite>. Default: <em>None</em>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>tmap</strong> (<em>float</em><em>, </em><em>ndarray</em>) – Sum of all maps within the event ensemble.</p></li>
+<li><p><strong>avcl_obs</strong> (<em>dict</em>) – Observed angular power spectrum averaged over all events. Its keys indicate
+the full spectrum and its mean error as well as the <span class="math notranslate nohighlight">\(m\neq0\)</span> spectrum
+and its mean error.</p></li>
+<li><p><strong>avcl_norm</strong> (<em>dict</em><em>, </em><em>optional</em>) – Normalized angular power spectrum averaged over all events. Its format is the
+same as <cite>avcl_obs</cite>. Activated when <cite>detcorr</cite> = <em>True</em>.</p></li>
+<li><p><strong>avcl_normcorr</strong> (<em>dict</em><em>, </em><em>optional</em>) – Normalized angular power spectrum corrected by event multiplicity. Its format
+is the same as <cite>avcl_obs</cite>. Activated when both <cite>detcorr</cite> = <em>True</em> and a file
+is given as <cite>multcorr_norm</cite>.</p></li>
+<li><p><strong>avcl_obscorr</strong> (<em>dict</em><em>, </em><em>optional</em>) – Observed angular power spectrum corrected by event multiplicity. Its format is
+the same as <cite>avcl_obs</cite>. Activated when a file is given as <cite>multcorr_obs</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>SupmapError</strong> – When one wants to divide a single map by itself.</p></li>
+<li><p><strong>IsomapError</strong> – When the desired <cite>supmap_iso*.fits</cite> file does not exist.</p></li>
+<li><p><strong>PowSpecError</strong> – When one tries to correct a normalized spectrum when it does not exist.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="maps_manip_mod.html#powspechi.maps_manip.mapping" title="powspechi.maps_manip.mapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">maps_manip.mapping</span></code></a></dt><dd><p>Makes HEALPix maps.</p>
+</dd>
+<dt><a class="reference internal" href="maps_manip_mod.html#powspechi.maps_manip.make_normmaps" title="powspechi.maps_manip.make_normmaps"><code class="xref py py-class docutils literal notranslate"><span class="pre">maps_manip.make_normmaps</span></code></a></dt><dd><p>Divide maps by a single map, usually the ensemble sum.</p>
+</dd>
+<dt><a class="reference internal" href="powspec_calc_mod.html#powspechi.powspec_calc.maps2cld" title="powspechi.powspec_calc.maps2cld"><code class="xref py py-class docutils literal notranslate"><span class="pre">powspec_calc.maps2cld</span></code></a></dt><dd><p>Calculate the angular power spectrum from maps.</p>
+</dd>
+<dt><a class="reference internal" href="powspec_calc_mod.html#powspechi.powspec_calc.isobackground" title="powspechi.powspec_calc.isobackground"><code class="xref py py-class docutils literal notranslate"><span class="pre">powspec_calc.isobackground</span></code></a></dt><dd><p>Make a dictionary out of a spectrum file for correction.</p>
+</dd>
+<dt><a class="reference internal" href="powspec_calc_mod.html#powspechi.powspec_calc.subisocorr" title="powspechi.powspec_calc.subisocorr"><code class="xref py py-class docutils literal notranslate"><span class="pre">powspec_calc.subisocorr</span></code></a></dt><dd><p>Subtract a spectrum from another.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><ol class="upperalpha simple" start="13">
+<li><p>Machado, “Heavy ion anisotropies: a closer look at the angular power spectrum”, arXiv:1907.00413 [hep-ph] (2019).</p></li>
+</ol>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="monte_carlos_mod.html" class="btn btn-neutral float-left" title="monte_carlos - Functions and Toy MC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Meera Vieira Machado
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXXXX-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
