@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>monte_carlos - Functions and Toy MC &mdash; powspechi 0.2.9.6dev0 documentation</title>
+  <title>monte_carlos - Functions and Toy MC &mdash; powspechi 0.2.9.7dev0 documentation</title>
   
 
   
@@ -178,12 +178,12 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>float</em><em>, </em><em>array_like</em>) – Independent variable.</p></li>
 <li><p><strong>sfct</strong> (<em>function</em>) – The chosen function to be multiplied by <span class="math notranslate nohighlight">\(\sin{(x)}\)</span>.</p></li>
-<li><p><strong>*args</strong> – Arguments to be passed to <cite>fct</cite>.</p></li>
-<li><p><strong>**kwargs</strong> – Keyword-only arguments to be passed to <cite>fct</cite>.</p></li>
+<li><p><strong>*args</strong> – Arguments to be passed to <cite>sfct</cite>.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword-only arguments to be passed to <cite>sfct</cite>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>y</strong> – Output value associated with multiplying <cite>fct</cite> by <span class="math notranslate nohighlight">\(\sin{(x)}\)</span>.
+<dd class="field-even"><p><strong>y</strong> – Output value associated with multiplying <cite>sfct</cite> by <span class="math notranslate nohighlight">\(\sin{(x)}\)</span>.
 Its shape is the same as <cite>x</cite>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
@@ -192,7 +192,7 @@ Its shape is the same as <cite>x</cite>.</p>
 </dl>
 <p class="rubric">Notes</p>
 <p>When picking a random polar point from a function defined on a sphere,
-just using <cite>fct</cite> will not yield the right result. It is therefore
+just using <cite>sfct</cite> will not yield the right result. It is therefore
 necessary to pick a point from <span class="math notranslate nohighlight">\(\sin{(x)}\)</span>. For a more
 detailed explanation, check ‘Sphere Point Picking’ on the internet or
 a text book.</p>

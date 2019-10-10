@@ -37,7 +37,7 @@ which is coupled to `HEALPix`_, one can map hadrons onto the surface of a sphere
 power spectra and perform the necessary corrections. Just install the package and try out the tutorial!
 
 .. note:: The resulting angular power spectra will always be given as a *dictionary*. Single and averaged spectra 
- follow the formats below:
+ follow the schematic formats below:
 
  .. code-block:: python
 
@@ -45,7 +45,7 @@ power spectra and perform the necessary corrections. Just install the package an
         avg_powspec = {'full': [numpy.mean(), numpy.std()], 'mdz': [numpy.mean(), numpy.std()]}
 
  where `'full'` and `'mdz'` correspond to :math:`C_{\ell}` and :math:`C^{m\neq0}_{\ell}`, respectively. The
- latter quantities are defined in ``powspec_calc.maps2cld``.
+ latter quantities are defined in ``powspec_calc.maps2cld``. 
 
 
 .. _"Angular power spectrum of heavy ion collisions": https://journals.aps.org/prc/abstract/10.1103/PhysRevC.99.054910
@@ -59,6 +59,11 @@ Installation
 
 Tutorial
 ========
+
+Explore the angular power spectrum analysis of a data set of simply simulated particle distributions by downloading the
+`tutorial.zip`_ file. It is over 200 MB due to the data set itself.
+
+.. _tutorial.zip: https://github.com/m33ra/powspechi/blob/master/tutorial.zip
 
 Documentation
 =============
