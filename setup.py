@@ -7,8 +7,8 @@ requirements = ['healpy>=1.12.10']
 
 setup(
         name='powspechi',
-        version='0.2.9.4dev',
-        author='Meera Machado',
+        version='0.2.9.6dev',
+        author='Meera Vieira Machado',
         author_email='machado.meera@gmail.com',
         description='A package of angular power spectral analysis for heavy-ions',
         long_description=readme,
