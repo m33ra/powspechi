@@ -10,13 +10,57 @@ Welcome to powspechi!
    :maxdepth: 2
    :caption: Contents:
 
-A package of power spectral fun :math:`\theta`!
+A package of power spectral fun for heavy-ion physics!
+
+There is a plethora of high energy physics articles out there which describes the matter formed in the
+collisions of heavy-ions as akin to the primordial universe. Such matter is, after all, an extremely
+hot and dense soup of quarks and gluons, just like the first moments after the Big Bang. 
+
+On that note, our oldest window into the creation of the universe are photons that freely streamed 
+after the first atoms were formed. These photons compose the comic microwave background (CMB), from 
+which cosmologists have been able to glean not only information on the metric of the universe, but 
+also on its dark matter and energy compositions.
+
+When considering the quark-gluon plasma (QGP) created in accelerators and the CMB, their analyses comprise
+on studying how left-over debris are distributed. In other words, what are the preferred directions of
+emission of the resulting particles? How can these anisotropies help in the understanding of said
+phenomena?
+
+This project combines CMB methods with QGP debris, an exploration which resulted in the works: `"Angular
+power spectrum of heavy ion collisions"`_, by M. Machado, P.H. Damgaard, J.J. Gaardhoeje and C. Bourjau,
+and its follow-up `"Heavy ion anisotropies: a closer look at the angular power spectrum"`_, by M. Machado.
+Both deal with `ALICE public data`_ on Pb-Pb collisions from 2010 extracted through the `mALICE framework`_.
+
+Dive into the angular power spectrum analysis of heavy-ions by submmitting your favorite 3+1D-model data, 
+experimental data itself, or simple MC-simulated particle distributions! Through the ``powspechi`` package,
+which is coupled to `HEALPix`_, one can map hadrons onto the surface of a sphere, calculate their angular
+power spectra and perform the necessary corrections. Just install the package and try out the tutorial!
+
+.. note:: The resulting angular power spectra will always be given as a *dictionary*. Single and averaged spectra 
+ follow the schematic formats below:
+
+ .. code-block:: python
+
+        single_powspec = {'full': numpy.array(), 'mdz': numpy.array()}
+        avg_powspec = {'full': [numpy.mean(), numpy.std()], 'mdz': [numpy.mean(), numpy.std()]}
+
+ where `'full'` and `'mdz'` correspond to :math:`C_{\ell}` and :math:`C^{m\neq0}_{\ell}`, respectively. The
+ latter quantities are defined in ``powspec_calc.maps2cld``. 
+
+
+.. _"Angular power spectrum of heavy ion collisions": https://journals.aps.org/prc/abstract/10.1103/PhysRevC.99.054910
+.. _"Heavy ion anisotropies\: a closer look at the angular power spectrum": https://arxiv.org/pdf/1907.00413
+.. _ALICE public data: http://opendata.cern.ch/record/1106
+.. _mALICE framework: https://github.com/cbourjau/alice-rs/
+.. _HEALPix: https://healpix.sourceforge.io/
 
 Installation
 ============
 
 Tutorial
 ========
+
+
 
 Documentation
 =============

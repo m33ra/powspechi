@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to powspechi! &mdash; powspechi 0.2.9.3dev0 documentation</title>
+  <title>Welcome to powspechi! &mdash; powspechi 0.2.9.6dev0 documentation</title>
   
 
   
@@ -153,7 +153,37 @@
 <h1>Welcome to powspechi!<a class="headerlink" href="#welcome-to-powspechi" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>A package of power spectral fun <span class="math notranslate nohighlight">\(\theta\)</span>!</p>
+<p>A package of power spectral fun for heavy-ion physics!</p>
+<p>There is a plethora of high energy physics articles out there which describes the matter formed in the
+collisions of heavy-ions as akin to the primordial universe. Such matter is, after all, an extremely
+hot and dense soup of quarks and gluons, just like the first moments after the Big Bang.</p>
+<p>On that note, our oldest window into the creation of the universe are photons that freely streamed
+after the first atoms were formed. These photons compose the comic microwave background (CMB), from
+which cosmologists have been able to glean not only information on the metric of the universe, but
+also on its dark matter and energy compositions.</p>
+<p>When considering the quark-gluon plasma (QGP) created in accelerators and the CMB, their analyses comprise
+on studying how left-over debris are distributed. In other words, what are the preferred directions of
+emission of the resulting particles? How can these anisotropies help in the understanding of said
+phenomena?</p>
+<p>This project combines CMB methods with QGP debris, an exploration which resulted in the works: <a class="reference external" href="https://journals.aps.org/prc/abstract/10.1103/PhysRevC.99.054910">“Angular
+power spectrum of heavy ion collisions”</a>, by M. Machado, P.H. Damgaard, J.J. Gaardhoeje and C. Bourjau,
+and its follow-up <a class="reference external" href="https://arxiv.org/pdf/1907.00413">“Heavy ion anisotropies: a closer look at the angular power spectrum”</a>, by M. Machado.
+Both deal with <a class="reference external" href="http://opendata.cern.ch/record/1106">ALICE public data</a> on Pb-Pb collisions from 2010 extracted through the <a class="reference external" href="https://github.com/cbourjau/alice-rs/">mALICE framework</a>.</p>
+<p>Dive into the angular power spectrum analysis of heavy-ions by submmitting your favorite 3+1D-model data,
+experimental data itself, or simple MC-simulated particle distributions! Through the <code class="docutils literal notranslate"><span class="pre">powspechi</span></code> package,
+which is coupled to <a class="reference external" href="https://healpix.sourceforge.io/">HEALPix</a>, one can map hadrons onto the surface of a sphere, calculate their angular
+power spectra and perform the necessary corrections. Just install the package and try out the tutorial!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The resulting angular power spectra will always be given as a <em>dictionary</em>. Single and averaged spectra
+follow the formats below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">single_powspec</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;full&#39;</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(),</span> <span class="s1">&#39;mdz&#39;</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">()}</span>
+<span class="n">avg_powspec</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;full&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">std</span><span class="p">()],</span> <span class="s1">&#39;mdz&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">std</span><span class="p">()]}</span>
+</pre></div>
+</div>
+<p>where <cite>‘full’</cite> and <cite>‘mdz’</cite> correspond to <span class="math notranslate nohighlight">\(C_{\ell}\)</span> and <span class="math notranslate nohighlight">\(C^{m\neq0}_{\ell}\)</span>, respectively. The
+latter quantities are defined in <code class="docutils literal notranslate"><span class="pre">powspec_calc.maps2cld</span></code>.</p>
+</div>
 </div>
 <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
