@@ -5,4 +5,4 @@
 # Large file handling
 tutorial/angs1015_etacut09det.dat filter=lfs diff=lfs merge=lfs -text
 *.tar.gz filter=lfs diff=lfs merge=lfs -text
-
+*.zip filter=lfs diff=lfs merge=lfs -text

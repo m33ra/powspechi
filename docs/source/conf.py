@@ -45,6 +45,9 @@ exclude_patterns = []
 # Napoleon settings
 napoleon_use_ivar = True
 
+# Code blocks
+pygments_style = 'sphinx'
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
