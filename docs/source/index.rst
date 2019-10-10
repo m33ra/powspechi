@@ -60,7 +60,10 @@ Installation
 Tutorial
 ========
 
+Explore the angular power spectrum analysis of a data set of simply simulated particle distributions by downloading the
+`tutorial.zip`_ file. It is over 200 MB due to the data set itself.
 
+.. _tutorial.zip: https://github.com/m33ra/powspechi/blob/master/tutorial.zip
 
 Documentation
 =============

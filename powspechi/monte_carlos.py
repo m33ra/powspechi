@@ -49,27 +49,27 @@ def fct_sin(x, sfct, *args, **kwargs):
     sfct : function
         The chosen function to be multiplied by :math:`\sin{(x)}`.
     *args 
-        Arguments to be passed to `fct`.
+        Arguments to be passed to `sfct`.
     **kwargs
-        Keyword-only arguments to be passed to `fct`.
+        Keyword-only arguments to be passed to `sfct`.
 
     Returns
     -------
     y : float, ndarray
-        Output value associated with multiplying `fct` by :math:`\sin{(x)}`.
+        Output value associated with multiplying `sfct` by :math:`\sin{(x)}`.
         Its shape is the same as `x`.
 
     Notes
     -----
     When picking a random polar point from a function defined on a sphere, 
-    just using `fct` will not yield the right result. It is therefore 
-    necessary to pick a point from :math:`\sin{(x)}`*`fct(x)`. For a more
+    just using `sfct` will not yield the right result. It is therefore 
+    necessary to pick a point from :math:`\sin{(x)}`*`sfct(x)`. For a more
     detailed explanation, check 'Sphere Point Picking' on the internet or
     a text book. 
 
     """
 
-    y = fct(x, *args, **kwargs)*np.sin(x)
+    y = sfct(x, *args, **kwargs)*np.sin(x)
     return y
 
 # Function based on Flow Fourier expansion; order n
