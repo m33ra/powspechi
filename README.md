@@ -2,7 +2,7 @@
 
 A simple python library for angular power spectral analysis of heavy-ion data - coupled to [HEALPix](https://healpix.sourceforge.io/). Explore the combination of methods used to analyze the early universe with debris from the matter created in accelerators. In other words, [quark-gluon plasma](https://home.cern/science/physics/heavy-ions-and-quark-gluon-plasma) meets spherical harmonics.
 
-Below it is possible to see examples of maps created from simulated particle distributions as well as some of the spherical harmonics that contribute to their geometries. One can also see the final spectra extracted from [ALICE public data from Run 1](http://opendata.cern.ch/record/1106) and the [mALICE](https://github.com/cbourjau/alice-rs/) repository. The spectra are shown for the 10-20% most central events at different ranges of transverse momentum (p<sub>T<sub>). Figures taken from ["Geometry in heavy ions: estimating an angular power spectrum"](https://www.nbi.ku.dk/english/research/phd_theses/phd_theses_2019/meera_vieira_machado/meera.pdf).
+Below it is possible to see examples of maps created from simulated particle distributions as well as some of the spherical harmonics that contribute to their geometries. One can also see the final spectra extracted from [ALICE public data from Run 1](http://opendata.cern.ch/record/1106) and the [mALICE](https://github.com/cbourjau/alice-rs/) repository. The spectra are shown for the 10-20% most central events at different ranges of transverse momentum (p<sub>T). Figures taken from ["Geometry in heavy ions: estimating an angular power spectrum"](https://www.nbi.ku.dk/english/research/phd_theses/phd_theses_2019/meera_vieira_machado/meera.pdf).
 
 ![Simulated maps (left) and power spectra (right)](exmaps_powspec.png)
 
