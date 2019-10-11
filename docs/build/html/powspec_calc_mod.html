@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>powspec_calc - All things power spectrum &mdash; powspechi 0.2.9.7dev0 documentation</title>
+  <title>powspec_calc - All things power spectrum &mdash; powspechi 0.2.9.9dev0 documentation</title>
   
 
   
@@ -198,7 +198,7 @@ and <span class="math notranslate nohighlight">\(P_{\ell m}\)</span> are the ass
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>avcls</strong> (<em>dict</em>) – A dictionary following a certain hierarchy: ‘vtx’ <span class="math notranslate nohighlight">\(\to\)</span> ‘full’/’mdz’ <span class="math notranslate nohighlight">\(\to\)</span> <em>list[mean_array, err_array]</em>. The first
-key ‘vtx’ stands for the vertex interval to which the averaged spectrum belogs. The sub-dictionary associated
+key ‘vtx’ stands for the vertex interval to which the averaged spectrum belongs. The sub-dictionary associated
 with the key ‘vtx’ is the standard format for averaged spectrum found throughout this package.</p></li>
 <li><p><strong>nevts</strong> (<em>dict</em>) – A dictionary whose ‘vtx’ keys are the same as <cite>avcls</cite>, while its values correspond to the total number of events in each
 ensemble.</p></li>
@@ -271,7 +271,7 @@ on the mean. Both quantities are ndarrays.</p>
 in the case of the full spectrum, even and odd <span class="math notranslate nohighlight">\(\ell\)</span> modes are treated differently. Odd modes are corrected
 with odd <span class="math notranslate nohighlight">\(\langle N_{\ell} \rangle\)</span>, whereas even modes are corrected with even <span class="math notranslate nohighlight">\(\langle N^{m\neq0}_{\ell} \rangle\)</span>.
 The reason lies in considering the artificial spectrum features which arise from limited sky maps. If <span class="math notranslate nohighlight">\(\langle C_{\ell} \rangle\)</span>
-is simply subtracted by <span class="math notranslate nohighlight">\(\langle N_{\ell} \rangle\)</span>, then such features will disapear, thus the resulting spectrum
+is simply subtracted by <span class="math notranslate nohighlight">\(\langle N_{\ell} \rangle\)</span>, then such features will disappear, thus the resulting spectrum
 will not faithfully reproduce the expected full spectrum under said circumstances.</p>
 </dd></dl>
 
@@ -305,7 +305,7 @@ the number of indices must correspond to a nside value.</p>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>cld</strong> (<em>dict</em>) – A dictionary whose keys correspond to the ‘full’ power spectrum
 and the same without the <span class="math notranslate nohighlight">\(a_{\ell 0}\)</span> modes, denoted ‘mdz’. The
-values of <cite>cld</cite> are ndarrays with dimentions dependent on the number
+values of <cite>cld</cite> are ndarrays with dimensions dependent on the number
 of entry maps and their resolution.</p></li>
 <li><p><strong>averd</strong> (<em>dict</em>) – If more than one map is given, the averaged power spectrum is calculated.
 Its keys are also ‘full’ and ‘mdz’. Its values are lists of arrays: index

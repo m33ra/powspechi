@@ -31,7 +31,7 @@ power spectrum of heavy ion collisions"`_, by M. Machado, P.H. Damgaard, J.J. Ga
 and its follow-up `"Heavy ion anisotropies: a closer look at the angular power spectrum"`_, by M. Machado.
 Both deal with `ALICE public data`_ on Pb-Pb collisions from 2010 extracted through the `mALICE framework`_.
 
-Dive into the angular power spectrum analysis of heavy-ions by submmitting your favorite 3+1D-model data, 
+Dive into the angular power spectrum analysis of heavy-ions by submitting your favorite 3+1D-model data, 
 experimental data itself, or simple MC-simulated particle distributions! Through the ``powspechi`` package,
 which is coupled to `HEALPix`_, one can map hadrons onto the surface of a sphere, calculate their angular
 power spectra and perform the necessary corrections. Just install the package and try out the tutorial!
@@ -61,9 +61,11 @@ Tutorial
 ========
 
 Explore the angular power spectrum analysis of a data set of simply simulated particle distributions by downloading the
-`tutorial.zip`_ file. It is over 200 MB due to the data set itself.
+`tutorial.zip`_ file. It is over 200 MB due to the data set itself. It is also possible to visualize the tutorial notebook
+with all of its plots through Jupyter nbviewer by clicking `here`_.
 
-.. _tutorial.zip: https://github.com/m33ra/powspechi/blob/master/tutorial.zip
+.. _tutorial.zip: https://github.com/m33ra/powspechi/raw/master/tutorial.zip
+.. _here: https://nbviewer.jupyter.org/github/m33ra/powspechi/blob/future/tutorial/Tutorial.ipynb
 
 Documentation
 =============

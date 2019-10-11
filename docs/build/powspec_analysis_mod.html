@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>powspec_analysis - Full analysis &mdash; powspechi 0.2.9.7dev0 documentation</title>
+  <title>powspec_analysis - Full analysis &mdash; powspechi 0.2.9.9dev0 documentation</title>
   
 
   
@@ -162,7 +162,7 @@
 <li><p><strong>nside</strong> (<em>int</em><em>, </em><em>scalar</em>) – Chosen map resolution.</p></li>
 <li><p><strong>angs</strong> (<em>float</em><em>, </em><em>array_like</em>) – List or array of angular coordinates of all events. Each of said events
 should be a 2-D array with shape (length, 2), where columns 0 and 1 stand
-for the azimuhtal <span class="math notranslate nohighlight">\(\phi\)</span> and polar <span class="math notranslate nohighlight">\(\theta\)</span> coordinates,
+for the azimuthal <span class="math notranslate nohighlight">\(\phi\)</span> and polar <span class="math notranslate nohighlight">\(\theta\)</span> coordinates,
 respectively.</p></li>
 <li><p><strong>etacut</strong> (<em>float</em><em>, </em><em>scalar</em><em>, </em><em>optional</em>) – Limit imposed on pseudorapidity, i.e., <span class="math notranslate nohighlight">\(|\eta|\)</span> &lt; <cite>etacut</cite>. If there
 is no limit, just set it to <em>None</em>. Default: 0.9.</p></li>
@@ -197,7 +197,8 @@ the same as <cite>avcl_obs</cite>. Activated when a file is given as <cite>multc
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>SupmapError</strong> – When one wants to divide a single map by itself.</p></li>
-<li><p><strong>IsomapError</strong> – When the desired <cite>supmap_iso*.fits</cite> file does not exist.</p></li>
+<li><p><strong>IsomapError</strong> – When the desired <cite>supmap_iso*.fits</cite> file does not exist. See <code class="docutils literal notranslate"><span class="pre">maps_manip.getsupmapiso</span></code>
+    for more details.</p></li>
 <li><p><strong>PowSpecError</strong> – When one tries to correct a normalized spectrum when it does not exist.</p></li>
 </ul>
 </dd>

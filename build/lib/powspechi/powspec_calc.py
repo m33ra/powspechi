@@ -41,7 +41,7 @@ def maps2cld(maps):
     cld : dict
         A dictionary whose keys correspond to the 'full' power spectrum
         and the same without the :math:`a_{\ell 0}` modes, denoted 'mdz'. The 
-        values of `cld` are ndarrays with dimentions dependent on the number 
+        values of `cld` are ndarrays with dimensions dependent on the number 
         of entry maps and their resolution.
     averd : dict
         If more than one map is given, the averaged power spectrum is calculated.
@@ -119,7 +119,7 @@ def isobackground(clsres_file, skip=True):
     in the case of the full spectrum, even and odd :math:`\ell` modes are treated differently. Odd modes are corrected
     with odd :math:`\langle N_{\ell} \rangle`, whereas even modes are corrected with even :math:`\langle N^{m\neq0}_{\ell} \rangle`.
     The reason lies in considering the artificial spectrum features which arise from limited sky maps. If :math:`\langle C_{\ell} \rangle`
-    is simply subtracted by :math:`\langle N_{\ell} \rangle`, then such features will disapear, thus the resulting spectrum
+    is simply subtracted by :math:`\langle N_{\ell} \rangle`, then such features will disappear, thus the resulting spectrum
     will not faithfully reproduce the expected full spectrum under said circumstances.
 
     """
@@ -176,7 +176,7 @@ def avcls_zvtx(avcls, nevts):
     ----------
     avcls : dict
         A dictionary following a certain hierarchy: 'vtx' :math:`\to` 'full'/'mdz' :math:`\to` *list[mean_array, err_array]*. The first 
-        key 'vtx' stands for the vertex interval to which the averaged spectrum belogs. The sub-dictionary associated
+        key 'vtx' stands for the vertex interval to which the averaged spectrum belongs. The sub-dictionary associated
         with the key 'vtx' is the standard format for averaged spectrum found throughout this package.
     nevts : dict
         A dictionary whose 'vtx' keys are the same as `avcls`, while its values correspond to the total number of events in each

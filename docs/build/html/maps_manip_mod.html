@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>maps_manip - Manipulate maps &mdash; powspechi 0.2.9.7dev0 documentation</title>
+  <title>maps_manip - Manipulate maps &mdash; powspechi 0.2.9.9dev0 documentation</title>
   
 
   
@@ -178,7 +178,8 @@ Default: 0.9.</p></li>
 <p>The maps in the files <cite>supmap_iso*.fits</cite> are meant to correct for edge effects when
 there is a limit on <span class="math notranslate nohighlight">\(\eta\)</span> (<span class="math notranslate nohighlight">\(\theta\)</span>) and it is necessary to divide the
 event maps their ensemble sum. In the case of no <span class="math notranslate nohighlight">\(\theta\)</span> limitations
-or no divisions, such maps are not necessary.</p>
+or no divisions, such maps are not necessary. Currently, <code class="docutils literal notranslate"><span class="pre">powspechi</span></code> supports such
+corrections for <cite>nside</cite>: 8, 16, 32, 64 and 128 and <cite>etacut</cite>: 0.8 and 0.9.</p>
 </dd></dl>
 
 <dl class="function">
@@ -212,7 +213,7 @@ by the following expression:</p>
 <div class="math notranslate nohighlight">
 \[\bar{f}(\mathbf{n_p}) = \frac{f(\mathbf{n_p})}{F^{all}(\mathbf{n_p})},\]</div>
 <p>where <span class="math notranslate nohighlight">\(f(\mathbf{n_p})\)</span> is a map from the original event ensemble, the latter
-denoted by the`maps` parameter.</p>
+denoted by the <cite>maps</cite> parameter.</p>
 <p class="rubric">References</p>
 <dl class="footnote brackets">
 <dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
