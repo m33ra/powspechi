@@ -3,8 +3,7 @@
 .gitignore export-ignore
 /docs export-ignore
 tutorial.zip export-ignore
-exMC1_map_sph.png export-ignore
-avSl_pts.pdf export-ignore
+exmaps_powspec.png export-ignore
 # Large file handling
 tutorial/angs1015_etacut09det.dat filter=lfs diff=lfs merge=lfs -text
 *.tar.gz filter=lfs diff=lfs merge=lfs -text
