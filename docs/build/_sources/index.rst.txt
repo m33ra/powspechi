@@ -57,6 +57,12 @@ power spectra and perform the necessary corrections. Just install the package an
 Installation
 ============
 
+In order to install ``powspechi`` just follow the procedure below:
+
+::
+
+        pip install powspechi
+
 Tutorial
 ========
 

@@ -27,6 +27,11 @@ pip install --user healpy
 
 ### Installing
 
+In order to install **powspechi**, just follow the procedure below:
+```
+pip install powspechi
+```
+
 ### Documentation
 
 ### Tutorial
