@@ -1,5 +1,5 @@
 class Error(Exception):
-    """Base class for other exceptions"""
+    """Base class for other exceptions."""
     # Based on https://www.programiz.com/python-programming/user-defined-exception
     pass
 
@@ -8,7 +8,7 @@ class SupmapError(Error):
     pass
 
 class IsomapError(Error):
-    """When the iso file for edge correction does not exist"""
+    """When the iso file for edge correction does not exist."""
     pass
 
 class PowSpecError(Error):

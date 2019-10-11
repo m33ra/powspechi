@@ -99,7 +99,8 @@ def getsupmapiso(nside, etacut=0.9):
 	The maps in the files `supmap_iso*.fits` are meant to correct for edge effects when
 	there is a limit on :math:`\eta` (:math:`\theta`) and it is necessary to divide the
 	event maps their ensemble sum. In the case of no :math:`\theta` limitations
-	or no divisions, such maps are not necessary.
+	or no divisions, such maps are not necessary. Currently, ``powspechi`` supports such
+	corrections for `nside`: 8, 16, 32, 64 and 128 and `etacut`: 0.8 and 0.9.
 
 	"""
 
@@ -182,7 +183,7 @@ def make_normmaps(maps, supmap, etacut=0.9):
 	.. math:: \bar{f}(\mathbf{n_p}) = \frac{f(\mathbf{n_p})}{F^{all}(\mathbf{n_p})},
 
 	where :math:`f(\mathbf{n_p})` is a map from the original event ensemble, the latter 
-	denoted by the`maps` parameter.
+	denoted by the `maps` parameter.
 
 	References
 	----------

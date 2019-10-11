@@ -17,7 +17,7 @@ class powspec_analysis():
     angs : float, array_like
         List or array of angular coordinates of all events. Each of said events 
         should be a 2-D array with shape (length, 2), where columns 0 and 1 stand 
-        for the azimuhtal :math:`\phi` and polar :math:`\theta` coordinates, 
+        for the azimuthal :math:`\phi` and polar :math:`\theta` coordinates, 
         respectively.
     etacut : float, scalar, optional
         Limit imposed on pseudorapidity, i.e., :math:`|\eta|` < `etacut`. If there
@@ -61,7 +61,8 @@ class powspec_analysis():
     SupmapError
         When one wants to divide a single map by itself.
     IsomapError
-        When the desired `supmap_iso*.fits` file does not exist.
+        When the desired `supmap_iso*.fits` file does not exist. See ``maps_manip.getsupmapiso``
+        for more details.
     PowSpecError
         When one tries to correct a normalized spectrum when it does not exist.
 
