@@ -48,6 +48,9 @@ napoleon_use_ivar = True
 # Code blocks
 pygments_style = 'sphinx'
 
+# Explicitly assigning the master document: conflict with previous sphinx version
+master_doc = 'index'
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
