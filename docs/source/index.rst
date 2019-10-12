@@ -49,7 +49,7 @@ power spectra and perform the necessary corrections. Just install the package an
 
 
 .. _"Angular power spectrum of heavy ion collisions": https://journals.aps.org/prc/abstract/10.1103/PhysRevC.99.054910
-.. _"Heavy ion anisotropies\: a closer look at the angular power spectrum": https://arxiv.org/pdf/1907.00413
+.. _"Heavy ion anisotropies\: a closer look at the angular power spectrum": https://arxiv.org/abs/1907.00413
 .. _ALICE public data: http://opendata.cern.ch/record/1106
 .. _mALICE framework: https://github.com/cbourjau/alice-rs/
 .. _HEALPix: https://healpix.sourceforge.io/
@@ -71,7 +71,7 @@ Explore the angular power spectrum analysis of a data set of simply simulated pa
 with all of its plots through Jupyter nbviewer by clicking `here`_.
 
 .. _tutorial.zip: https://github.com/m33ra/powspechi/raw/master/tutorial.zip
-.. _here: https://nbviewer.jupyter.org/github/m33ra/powspechi/blob/future/tutorial/Tutorial.ipynb
+.. _here: https://nbviewer.jupyter.org/github/m33ra/powspechi/blob/master/tutorial/Tutorial.ipynb
 
 Documentation
 =============
