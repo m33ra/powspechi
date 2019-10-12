@@ -38,7 +38,7 @@ Check the full documentation for the lastest version of **powspechi** [here](htt
 
 ### Tutorial
 
-A Jupyter notebook tutorial along with some example files can be downloaded [here](https://github.com/m33ra/powspechi/raw/master/tutorial.zip); be warned that it is around 200 MB due to the example files. Alternatively, the tutorial can be visualized with Jupyter nbviewer [here](https://nbviewer.jupyter.org/github/m33ra/powspechi/blob/future/tutorial/Tutorial.ipynb). 
+A Jupyter notebook tutorial along with some example files can be downloaded [here](https://github.com/m33ra/powspechi/raw/master/tutorial.zip); be warned that it is around 200 MB due to the example files. Alternatively, the tutorial can be visualized with Jupyter nbviewer [here](https://nbviewer.jupyter.org/github/m33ra/powspechi/blob/master/tutorial/Tutorial.ipynb). 
 
 ### Publications
 
