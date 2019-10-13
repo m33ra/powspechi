@@ -17,7 +17,7 @@ collisions of heavy-ions as akin to the primordial universe. Such matter is, aft
 hot and dense soup of quarks and gluons, just like the first moments after the Big Bang. 
 
 On that note, our oldest window into the creation of the universe are photons that freely streamed 
-after the first atoms were formed. These photons compose the comic microwave background (CMB), from 
+after the first atoms were formed. These photons compose the cosmic microwave background (CMB), from 
 which cosmologists have been able to glean not only information on the metric of the universe, but 
 also on its dark matter and energy compositions.
 
