@@ -16,4 +16,7 @@ python:
    version: 3.6
    install:
       - requirements: requirements_dev.txt
-   setup_py_install: true
+      - method: pip
+
+submodules:
+        include: all
