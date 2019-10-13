@@ -7,14 +7,6 @@ version: 2
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
-        configuration: docs/conf.py
-
-python:
-        setup_py_install: true
-
-# Sphinx
-
-sphinx:
   builder: html
-  configuration: conf.py
+  configuration: docs/conf.py
   fail_on_warning: true
