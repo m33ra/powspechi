@@ -10,6 +10,7 @@
 
 # Some Jupyter notebook checkpoints file
 /.ipynb_checkpoints/
+/tutorial/.ipynb_checkpoints
 
 ################################################################################
 # Taken from https://python-packaging.readthedocs.io/en/latest/everything.html #
