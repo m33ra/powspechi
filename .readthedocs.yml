@@ -10,3 +10,9 @@ sphinx:
   builder: html
   configuration: docs/source/conf.py
   fail_on_warning: true
+
+# Python requirements
+python:
+   version: 3.6
+   install:
+      - requirements: requirements.txt
