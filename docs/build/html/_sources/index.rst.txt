@@ -6,10 +6,6 @@
 Welcome to powspechi!
 =====================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
 A package of power spectral fun for heavy-ion physics!
 
 There is a plethora of high energy physics articles out there which describes the matter formed in the
